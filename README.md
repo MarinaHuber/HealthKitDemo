@@ -1,29 +1,35 @@
-# README #
+# Workout Detail Test App
 
-This README would normally document whatever steps are necessary to get your application up and running.
+The goal of the project is to make a route map with an overlay with charts which show more detail of a trip.
 
-### What is this repository for? ###
+## Stories
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+- As a user I can import a GPX file into Apple Health. The file will be provided and can be included in the project.
+- As a user I can see a route of my session. All data should be read from Apple Health
+- As a user I can a chart of my speed across the session
+- As a user I can see a chart of my pace across the session
+- As a user I can see a chart of my heart rate across the session
 
-### How do I get set up? ###
+![Wireframes - the app can be quite "vanilla" and should not need be a pixel perfect from these wireframes. That said, the "cards" paradigm is important](https://cln.sh/DaBD8f/download)
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+## Notes
 
-### Contribution guidelines ###
+- App can be either UIKit, SwiftUI or a hybrid
+- You can use any third party dependencies you see fit, but be prepared to explain why you chose them
+    - We use [PanModal](https://github.com/slackhq/PanModal) for the popover cards at the moment
+    - [CoreGPX](https://github.com/vincentneo/CoreGPX) is a good GPX library
+- Remember to include time for demoing your app and other communications that may come up
 
-* Writing tests
-* Code review
-* Other guidelines
+## Milestones
 
-### Who do I talk to? ###
+- Provide quote for completing project
+    - Should include estimated start and end dates
+    - Should include range of estimated hours
+    - Should include cost per hour
+    - Break quote down into two parts
+        - Import and map
+        - Charts
 
-* Repo owner or admin
-* Other community or team contact
+- Paddle Logger sign off on quote
+- Complete import and map - demo app, get paid
+- Complete charts - demo app, get paid
