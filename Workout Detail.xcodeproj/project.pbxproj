@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		623984FA2656601E00965A3B /* import.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 623984F92656601E00965A3B /* import.gpx */; };
+		623984FD2656625900965A3B /* CoreGPX in Frameworks */ = {isa = PBXBuildFile; productRef = 623984FC2656625900965A3B /* CoreGPX */; };
+		623985002656754400965A3B /* GPXWaypoint+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623984FF2656754400965A3B /* GPXWaypoint+Location.swift */; };
 		62F9C62326565C4A00D77B53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F9C62226565C4A00D77B53 /* AppDelegate.swift */; };
 		62F9C62526565C4A00D77B53 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F9C62426565C4A00D77B53 /* SceneDelegate.swift */; };
 		62F9C62726565C4A00D77B53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F9C62626565C4A00D77B53 /* ViewController.swift */; };
@@ -18,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		623984F92656601E00965A3B /* import.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = import.gpx; sourceTree = "<group>"; };
+		623984FF2656754400965A3B /* GPXWaypoint+Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GPXWaypoint+Location.swift"; sourceTree = "<group>"; };
 		62F9C61F26565C4A00D77B53 /* Workout Detail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Workout Detail.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62F9C62226565C4A00D77B53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62F9C62426565C4A00D77B53 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				623984FD2656625900965A3B /* CoreGPX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +49,14 @@
 				623984F92656601E00965A3B /* import.gpx */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		623984FE2656752D00965A3B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				623984FF2656754400965A3B /* GPXWaypoint+Location.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		62F9C61626565C4A00D77B53 = {
@@ -66,6 +78,7 @@
 		62F9C62126565C4A00D77B53 /* Workout Detail */ = {
 			isa = PBXGroup;
 			children = (
+				623984FE2656752D00965A3B /* Extensions */,
 				623984F82656600100965A3B /* Resources */,
 				62F9C62226565C4A00D77B53 /* AppDelegate.swift */,
 				62F9C62426565C4A00D77B53 /* SceneDelegate.swift */,
@@ -94,6 +107,9 @@
 			dependencies = (
 			);
 			name = "Workout Detail";
+			packageProductDependencies = (
+				623984FC2656625900965A3B /* CoreGPX */,
+			);
 			productName = "Workout Detail";
 			productReference = 62F9C61F26565C4A00D77B53 /* Workout Detail.app */;
 			productType = "com.apple.product-type.application";
@@ -121,6 +137,9 @@
 				Base,
 			);
 			mainGroup = 62F9C61626565C4A00D77B53;
+			packageReferences = (
+				623984FB2656625900965A3B /* XCRemoteSwiftPackageReference "CoreGPX" */,
+			);
 			productRefGroup = 62F9C62026565C4A00D77B53 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -152,6 +171,7 @@
 				62F9C62726565C4A00D77B53 /* ViewController.swift in Sources */,
 				62F9C62326565C4A00D77B53 /* AppDelegate.swift in Sources */,
 				62F9C62526565C4A00D77B53 /* SceneDelegate.swift in Sources */,
+				623985002656754400965A3B /* GPXWaypoint+Location.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +373,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		623984FB2656625900965A3B /* XCRemoteSwiftPackageReference "CoreGPX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vincentneo/CoreGPX";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		623984FC2656625900965A3B /* CoreGPX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 623984FB2656625900965A3B /* XCRemoteSwiftPackageReference "CoreGPX" */;
+			productName = CoreGPX;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 62F9C61726565C4A00D77B53 /* Project object */;
 }
