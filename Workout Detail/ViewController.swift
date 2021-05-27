@@ -9,9 +9,12 @@ import UIKit
 import os
 import CoreGPX
 import CoreLocation
+import HealthKit
 
 class ViewController: UIViewController {
 
+    private let gpxService = GPXService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -29,7 +32,7 @@ class ViewController: UIViewController {
         }
         
         var allLocations = [CLLocation]()
-        var allHr = [Date: Double]()
+        var allHr = [Date: Int]()
         
         for track in gpx.tracks {
             for segment in track.segments {
@@ -39,14 +42,25 @@ class ViewController: UIViewController {
                         os_log("Could not make location out of waypoint")
                         continue
                     }
-                    
                     allLocations.append(location)
+                    //      let cgPoints = points.map { NSCoder.cgPoint(for: $0) }
+                    //      let coords = cgPoints.map { CLLocationCoordinate2D(
+                    //        latitude: CLLocationDegrees($0.x),
+                    //        longitude: CLLocationDegrees($0.y))
+                    //      }
+                    //      let myPolyline = MKPolyline(coordinates: coords, count: coords.count)
+                    //
+                    //      mapView.addOverlay(myPolyline)
+                    
+                    print("this are the trkpt coordinate: \(location.coordinate)")
                     
                     if let heartRateString = trackPoint.extensions?["gpxtpx:TrackPointExtension"]["gpxtpx:hr"].text,
-                       let hrDouble = Double(heartRateString),
-                       let date = trackPoint.time
+                       let hrDouble = Int(heartRateString),
+                       let date = trackPoint.time // UTC
                        {
                         allHr[date] = hrDouble
+                        
+                        print("Heart Rate: \(hrDouble)")
                     }
                 }
             }
@@ -55,6 +69,46 @@ class ViewController: UIViewController {
         os_log("Finished reading data")
         
         // TODO: write to Apple Health!
+        
+       // 1. requestAuthorization
+       // 2. convert location to HealthKit object
+        //https://rowant.co.uk/importing-file-data/
+    }
+    
+    func authorizeHealthKit(completion: @escaping (Bool, Error?) -> Void) {
+           
+        guard HKHealthStore.isHealthDataAvailable() else {
+             // completion(false, HealthkitSetupError.notAvailableOnDevice)
+              return
+            }
+           
+        let healthKitTypesToWrite: Set<HKSampleType> = [
+              HKObjectType.quantityType(forIdentifier: .heartRate)!,
+              HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)!,
+              HKSeriesType.workoutRoute(),
+              HKObjectType.workoutType()
+            ]
+        
+        let healthKitTypesToRead: Set<HKSampleType> = [
+              HKObjectType.quantityType(forIdentifier: .heartRate)!,
+              HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)!,
+              HKSeriesType.workoutRoute(),
+              HKObjectType.workoutType()
+            ]
+           
+           
+        HKHealthStore().requestAuthorization(toShare: healthKitTypesToWrite, read: healthKitTypesToRead) { (success, error) in
+            DispatchQueue.main.async {
+                   // Handle Completion
+                completion(success, error)
+                 }
+           }
+       }
+    
+    @IBAction func showMap(_ sender: Any) {
+        
+        let mvc = MapViewController(gpxService: gpxService)
+        self.navigationController?.pushViewController(mvc, animated: true)
     }
     
 }

@@ -9,6 +9,24 @@
           "revision": "bc61acc0b64f8f09a51811ac0664885af30d0a41",
           "version": "0.9.0"
         }
+      },
+      {
+        "package": "PanModal",
+        "repositoryURL": "https://github.com/slackhq/PanModal",
+        "state": {
+          "branch": null,
+          "revision": "b012aecb6b67a8e46369227f893c12544846613f",
+          "version": "1.2.7"
+        }
+      },
+      {
+        "package": "SnapKit",
+        "repositoryURL": "https://github.com/SnapKit/SnapKit",
+        "state": {
+          "branch": null,
+          "revision": "d458564516e5676af9c70b4f4b2a9178294f1bc6",
+          "version": "5.0.1"
+        }
       }
     ]
   },

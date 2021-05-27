@@ -16,6 +16,12 @@
 		62F9C62A26565C4A00D77B53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62F9C62826565C4A00D77B53 /* Main.storyboard */; };
 		62F9C62C26565C4A00D77B53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62F9C62B26565C4A00D77B53 /* Assets.xcassets */; };
 		62F9C62F26565C4A00D77B53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62F9C62D26565C4A00D77B53 /* LaunchScreen.storyboard */; };
+		9C1BD306265DA4B9000E167B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9C1BD305265DA4B9000E167B /* SnapKit */; };
+		9C1BD30D265DA78F000E167B /* PanModal in Frameworks */ = {isa = PBXBuildFile; productRef = 9C1BD30C265DA78F000E167B /* PanModal */; };
+		9C1BD311265DAA4B000E167B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1BD310265DAA4B000E167B /* MapViewController.swift */; };
+		9C1BD314265FAE27000E167B /* GPXService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1BD313265FAE27000E167B /* GPXService.swift */; };
+		9C1BD317265FBD41000E167B /* SpeedChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1BD316265FBD41000E167B /* SpeedChartView.swift */; };
+		9C1BD31A265FC28A000E167B /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1BD319265FC28A000E167B /* Workout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +35,10 @@
 		62F9C62B26565C4A00D77B53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62F9C62E26565C4A00D77B53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		62F9C63026565C4A00D77B53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C1BD310265DAA4B000E167B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		9C1BD313265FAE27000E167B /* GPXService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXService.swift; sourceTree = "<group>"; };
+		9C1BD316265FBD41000E167B /* SpeedChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedChartView.swift; sourceTree = "<group>"; };
+		9C1BD319265FC28A000E167B /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +47,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				623984FD2656625900965A3B /* CoreGPX in Frameworks */,
+				9C1BD306265DA4B9000E167B /* SnapKit in Frameworks */,
+				9C1BD30D265DA78F000E167B /* PanModal in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +95,10 @@
 				62F9C62226565C4A00D77B53 /* AppDelegate.swift */,
 				62F9C62426565C4A00D77B53 /* SceneDelegate.swift */,
 				62F9C62626565C4A00D77B53 /* ViewController.swift */,
+				9C1BD310265DAA4B000E167B /* MapViewController.swift */,
+				9C1BD316265FBD41000E167B /* SpeedChartView.swift */,
+				9C1BD319265FC28A000E167B /* Workout.swift */,
+				9C1BD313265FAE27000E167B /* GPXService.swift */,
 				62F9C62826565C4A00D77B53 /* Main.storyboard */,
 				62F9C62B26565C4A00D77B53 /* Assets.xcassets */,
 				62F9C62D26565C4A00D77B53 /* LaunchScreen.storyboard */,
@@ -109,6 +125,8 @@
 			name = "Workout Detail";
 			packageProductDependencies = (
 				623984FC2656625900965A3B /* CoreGPX */,
+				9C1BD305265DA4B9000E167B /* SnapKit */,
+				9C1BD30C265DA78F000E167B /* PanModal */,
 			);
 			productName = "Workout Detail";
 			productReference = 62F9C61F26565C4A00D77B53 /* Workout Detail.app */;
@@ -139,6 +157,8 @@
 			mainGroup = 62F9C61626565C4A00D77B53;
 			packageReferences = (
 				623984FB2656625900965A3B /* XCRemoteSwiftPackageReference "CoreGPX" */,
+				9C1BD304265DA4B9000E167B /* XCRemoteSwiftPackageReference "SnapKit" */,
+				9C1BD30B265DA78F000E167B /* XCRemoteSwiftPackageReference "PanModal" */,
 			);
 			productRefGroup = 62F9C62026565C4A00D77B53 /* Products */;
 			projectDirPath = "";
@@ -169,9 +189,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				62F9C62726565C4A00D77B53 /* ViewController.swift in Sources */,
+				9C1BD31A265FC28A000E167B /* Workout.swift in Sources */,
+				9C1BD314265FAE27000E167B /* GPXService.swift in Sources */,
 				62F9C62326565C4A00D77B53 /* AppDelegate.swift in Sources */,
 				62F9C62526565C4A00D77B53 /* SceneDelegate.swift in Sources */,
+				9C1BD311265DAA4B000E167B /* MapViewController.swift in Sources */,
 				623985002656754400965A3B /* GPXWaypoint+Location.swift in Sources */,
+				9C1BD317265FBD41000E167B /* SpeedChartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,7 +272,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -303,7 +327,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -319,13 +343,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HRFVJQQ56T;
+				DEVELOPMENT_TEAM = HBS2B82CVU;
 				INFOPLIST_FILE = "Workout Detail/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.paddlelogger.Workout-Detail";
+				PRODUCT_BUNDLE_IDENTIFIER = com.marinahuber.Workout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -338,13 +362,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HRFVJQQ56T;
+				DEVELOPMENT_TEAM = HBS2B82CVU;
 				INFOPLIST_FILE = "Workout Detail/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.paddlelogger.Workout-Detail";
+				PRODUCT_BUNDLE_IDENTIFIER = com.marinahuber.Workout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -383,6 +407,22 @@
 				minimumVersion = 0.9.0;
 			};
 		};
+		9C1BD304265DA4B9000E167B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+		9C1BD30B265DA78F000E167B /* XCRemoteSwiftPackageReference "PanModal" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/slackhq/PanModal";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.7;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -390,6 +430,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 623984FB2656625900965A3B /* XCRemoteSwiftPackageReference "CoreGPX" */;
 			productName = CoreGPX;
+		};
+		9C1BD305265DA4B9000E167B /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C1BD304265DA4B9000E167B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		9C1BD30C265DA78F000E167B /* PanModal */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C1BD30B265DA78F000E167B /* XCRemoteSwiftPackageReference "PanModal" */;
+			productName = PanModal;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
