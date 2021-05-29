@@ -12,16 +12,18 @@
 		623985002656754400965A3B /* GPXWaypoint+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623984FF2656754400965A3B /* GPXWaypoint+Location.swift */; };
 		62F9C62326565C4A00D77B53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F9C62226565C4A00D77B53 /* AppDelegate.swift */; };
 		62F9C62526565C4A00D77B53 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F9C62426565C4A00D77B53 /* SceneDelegate.swift */; };
-		62F9C62726565C4A00D77B53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F9C62626565C4A00D77B53 /* ViewController.swift */; };
+		62F9C62726565C4A00D77B53 /* ImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F9C62626565C4A00D77B53 /* ImportViewController.swift */; };
 		62F9C62A26565C4A00D77B53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62F9C62826565C4A00D77B53 /* Main.storyboard */; };
 		62F9C62C26565C4A00D77B53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62F9C62B26565C4A00D77B53 /* Assets.xcassets */; };
 		62F9C62F26565C4A00D77B53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62F9C62D26565C4A00D77B53 /* LaunchScreen.storyboard */; };
 		9C1BD306265DA4B9000E167B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9C1BD305265DA4B9000E167B /* SnapKit */; };
 		9C1BD30D265DA78F000E167B /* PanModal in Frameworks */ = {isa = PBXBuildFile; productRef = 9C1BD30C265DA78F000E167B /* PanModal */; };
 		9C1BD311265DAA4B000E167B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1BD310265DAA4B000E167B /* MapViewController.swift */; };
-		9C1BD314265FAE27000E167B /* GPXService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1BD313265FAE27000E167B /* GPXService.swift */; };
 		9C1BD317265FBD41000E167B /* SpeedChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1BD316265FBD41000E167B /* SpeedChartView.swift */; };
 		9C1BD31A265FC28A000E167B /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1BD319265FC28A000E167B /* Workout.swift */; };
+		9C5327782662812D007F58E3 /* WorkoutMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5327772662812D007F58E3 /* WorkoutMapper.swift */; };
+		9C5327832662BDC5007F58E3 /* HealthKitSetupAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5327822662BDC5007F58E3 /* HealthKitSetupAssistant.swift */; };
+		9C5327882662C0CF007F58E3 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5327872662C0CF007F58E3 /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,15 +32,18 @@
 		62F9C61F26565C4A00D77B53 /* Workout Detail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Workout Detail.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62F9C62226565C4A00D77B53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62F9C62426565C4A00D77B53 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		62F9C62626565C4A00D77B53 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		62F9C62626565C4A00D77B53 /* ImportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportViewController.swift; sourceTree = "<group>"; };
 		62F9C62926565C4A00D77B53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		62F9C62B26565C4A00D77B53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62F9C62E26565C4A00D77B53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		62F9C63026565C4A00D77B53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C1BD310265DAA4B000E167B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		9C1BD313265FAE27000E167B /* GPXService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXService.swift; sourceTree = "<group>"; };
 		9C1BD316265FBD41000E167B /* SpeedChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedChartView.swift; sourceTree = "<group>"; };
 		9C1BD319265FC28A000E167B /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		9C5327772662812D007F58E3 /* WorkoutMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutMapper.swift; sourceTree = "<group>"; };
+		9C5327822662BDC5007F58E3 /* HealthKitSetupAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSetupAssistant.swift; sourceTree = "<group>"; };
+		9C5327852662C0CF007F58E3 /* Workout Detail.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Workout Detail.entitlements"; sourceTree = "<group>"; };
+		9C5327872662C0CF007F58E3 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +52,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				623984FD2656625900965A3B /* CoreGPX in Frameworks */,
+				9C5327882662C0CF007F58E3 /* HealthKit.framework in Frameworks */,
 				9C1BD306265DA4B9000E167B /* SnapKit in Frameworks */,
 				9C1BD30D265DA78F000E167B /* PanModal in Frameworks */,
 			);
@@ -76,6 +82,7 @@
 			children = (
 				62F9C62126565C4A00D77B53 /* Workout Detail */,
 				62F9C62026565C4A00D77B53 /* Products */,
+				9C5327862662C0CF007F58E3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,21 +97,55 @@
 		62F9C62126565C4A00D77B53 /* Workout Detail */ = {
 			isa = PBXGroup;
 			children = (
+				9C5327852662C0CF007F58E3 /* Workout Detail.entitlements */,
+				9C53277E2662B8B2007F58E3 /* Scene */,
+				9C53277D2662B8A9007F58E3 /* Model */,
+				9C53277C2662B89D007F58E3 /* MappingHelper */,
 				623984FE2656752D00965A3B /* Extensions */,
 				623984F82656600100965A3B /* Resources */,
+				9C5327822662BDC5007F58E3 /* HealthKitSetupAssistant.swift */,
 				62F9C62226565C4A00D77B53 /* AppDelegate.swift */,
 				62F9C62426565C4A00D77B53 /* SceneDelegate.swift */,
-				62F9C62626565C4A00D77B53 /* ViewController.swift */,
-				9C1BD310265DAA4B000E167B /* MapViewController.swift */,
-				9C1BD316265FBD41000E167B /* SpeedChartView.swift */,
-				9C1BD319265FC28A000E167B /* Workout.swift */,
-				9C1BD313265FAE27000E167B /* GPXService.swift */,
 				62F9C62826565C4A00D77B53 /* Main.storyboard */,
 				62F9C62B26565C4A00D77B53 /* Assets.xcassets */,
 				62F9C62D26565C4A00D77B53 /* LaunchScreen.storyboard */,
 				62F9C63026565C4A00D77B53 /* Info.plist */,
 			);
 			path = "Workout Detail";
+			sourceTree = "<group>";
+		};
+		9C53277C2662B89D007F58E3 /* MappingHelper */ = {
+			isa = PBXGroup;
+			children = (
+				9C5327772662812D007F58E3 /* WorkoutMapper.swift */,
+			);
+			path = MappingHelper;
+			sourceTree = "<group>";
+		};
+		9C53277D2662B8A9007F58E3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9C1BD319265FC28A000E167B /* Workout.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9C53277E2662B8B2007F58E3 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				9C1BD316265FBD41000E167B /* SpeedChartView.swift */,
+				9C1BD310265DAA4B000E167B /* MapViewController.swift */,
+				62F9C62626565C4A00D77B53 /* ImportViewController.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		9C5327862662C0CF007F58E3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C5327872662C0CF007F58E3 /* HealthKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,9 +229,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62F9C62726565C4A00D77B53 /* ViewController.swift in Sources */,
+				9C5327832662BDC5007F58E3 /* HealthKitSetupAssistant.swift in Sources */,
+				62F9C62726565C4A00D77B53 /* ImportViewController.swift in Sources */,
 				9C1BD31A265FC28A000E167B /* Workout.swift in Sources */,
-				9C1BD314265FAE27000E167B /* GPXService.swift in Sources */,
+				9C5327782662812D007F58E3 /* WorkoutMapper.swift in Sources */,
 				62F9C62326565C4A00D77B53 /* AppDelegate.swift in Sources */,
 				62F9C62526565C4A00D77B53 /* SceneDelegate.swift in Sources */,
 				9C1BD311265DAA4B000E167B /* MapViewController.swift in Sources */,
@@ -342,6 +384,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Workout Detail/Workout Detail.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HBS2B82CVU;
 				INFOPLIST_FILE = "Workout Detail/Info.plist";
@@ -361,6 +404,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Workout Detail/Workout Detail.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HBS2B82CVU;
 				INFOPLIST_FILE = "Workout Detail/Info.plist";
