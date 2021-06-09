@@ -12,11 +12,13 @@ import MapKit
 import os
 import PanModal
 import CoreGPX
+import HealthKit
 
 class MapViewController: UIViewController, MKMapViewDelegate {
  
     private var mapView = MKMapView()
-    let regionRadius: CLLocationDistance = 4000
+    private var regionRadius: CLLocationDistance = 4000
+    private var locationSamples: [CLLocation] = []
 
     private lazy var chartButton: UIButton = {
         let button = UIButton(type: .custom)
@@ -64,31 +66,55 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
-    func drawRoute(locations: [GPXLocation]) {
-        let coords = locations.map { CLLocationCoordinate2D(
-            latitude: CLLocationDegrees($0.coordinates.coordinate.latitude),
-            longitude: CLLocationDegrees($0.coordinates.coordinate.longitude))
+    func drawRoute() {
+        HealthManager.shared.getRouteValueFromHealthKit { locations, error in
+          //  locations.forEach { location in
+                let coords = locations.map { location in CLLocationCoordinate2D(
+                            latitude: CLLocationDegrees(location.coordinate.latitude),
+                            longitude: CLLocationDegrees(location.coordinate.longitude))
+                            }
+
+                let myPolyline = MKPolyline(coordinates: coords, count: coords.count)
+                DispatchQueue.main.async {
+                self.mapView.addOverlay(myPolyline)
+              }
+           // }
         }
-  
-        let myPolyline = MKPolyline(coordinates: coords, count: coords.count)
-        self.mapView.addOverlay(myPolyline)
+        
+        
+        guard locationSamples.count > 0 else {
+            return
+        }
+            self.locationSamples.forEach { location in
+                let coords = self.locationSamples.map { _ in CLLocationCoordinate2D(
+                            latitude: CLLocationDegrees(location.coordinate.latitude),
+                            longitude: CLLocationDegrees(location.coordinate.longitude))
+                            }
+
+                let myPolyline = MKPolyline(coordinates: coords, count: coords.count)
+                DispatchQueue.main.async {
+                self.mapView.addOverlay(myPolyline)
+              }
+            }
+        }
+         
+
+        
+    
+    func addRoute() {
+        let workoutList = WorkoutMapper.parseGPX()
+        self.drawRoute()
+    
+        let centerLocation = workoutList.map { $0.coordinates }
+        self.centerMapOnStartLocation(location: centerLocation.last!)
     }
     
     @objc func handleButtonPressed(_ sender: UIButton) {
-        let chart = SpeedChartView()
+        let chart = ChartViewController()
         self.navigationController?.presentPanModal(chart)
     }
 
-    
-    func addRoute() {
-        let locations = WorkoutMapper.parse()
-        self.drawRoute(locations: locations)
-        locations.forEach {
-            self.centerMapOnStartLocation(location: $0.coordinates)
-        }
-    }
 
-    
     // MARK: - MapKit
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if let routePolyline = overlay as? MKPolyline {
@@ -108,5 +134,32 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                                                   longitudinalMeters: regionRadius)
       mapView.setRegion(coordinateRegion, animated: true)
     }
-
 }
+    
+    #warning("center map improve")
+    //*******
+    //                let latitudes = locations.map {
+    //                    $0.coordinate.latitude
+    //                }
+    //                let longitudes = locations.map {
+    //                    $0.coordinate.longitude
+    //                }
+    //
+    //                // Outline map region to display
+    //                guard let maxLat = latitudes.max() else { fatalError("Unable to get maxLat") }
+    //                guard let minLat = latitudes.min() else { return }
+    //                guard let maxLong = longitudes.max() else { return }
+    //                guard let minLong = longitudes.min() else { return }
+    //
+    //                if done {
+    //                    let mapCenter = CLLocationCoordinate2D(latitude: (minLat + maxLat) / 2, longitude: (minLong + maxLong) / 2)
+    //                    let mapSpan = MKCoordinateSpan(latitudeDelta: (maxLat - minLat) * mapDisplayAreaPadding,
+    //                                                  longitudeDelta: (maxLong - minLong) * mapDisplayAreaPadding)
+    //
+    //                    DispatchQueue.main.async {
+    //                        // Push to main thread to drop dots on the map.
+    //                        // Without this a warning will occur.
+    //                        self.region = MKCoordinateRegion(center: mapCenter, span: mapSpan)
+    //                        locations.forEach { (location) in
+    //                            self.overlayRoute(at: location)
+    //                        }

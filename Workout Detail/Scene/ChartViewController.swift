@@ -8,12 +8,16 @@
 import UIKit
 import PanModal
 
-class SpeedChartView: UIViewController {
+class ChartViewController: UIViewController {
     
     private let graphSegmentedControl = UISegmentedControl()
     private let graphView = UIView()
+    private var workoutDistance: Double
+    private var heartRate: Int
     
     init() {
+        self.workoutDistance = 0.0
+        self.heartRate = 0
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -68,7 +72,7 @@ class SpeedChartView: UIViewController {
     }
 }
 
-extension SpeedChartView: PanModalPresentable {
+extension ChartViewController: PanModalPresentable {
 
     var panScrollable: UIScrollView? {
         return nil

@@ -8,12 +8,14 @@
 import CoreLocation
 
 struct Workout {
+    #warning("Remove or rename GPXLocation")
   let locations: [GPXLocation]
 }
 
 public struct GPXLocation {
     let coordinates: CLLocation
-    let heartRate: Int
+    let startTime: Date
+    let heartRate: Double
     let speed: Double //mps
     let course: Double?
 }

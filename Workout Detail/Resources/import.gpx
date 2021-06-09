@@ -15,7 +15,6 @@ xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
 					<gpxtpx:TrackPointExtension>
 						<gpxtpx:hr>87</gpxtpx:hr>
 						<gpxtpx:speed>2.518402</gpxtpx:speed>
-						<gpxtpx:course>80.731514</gpxtpx:course>
 						<gpxtpx:hAcc>5.999685</gpxtpx:hAcc>
 						<gpxtpx:vAcc>2.400000</gpxtpx:vAcc>
 					</gpxtpx:TrackPointExtension>

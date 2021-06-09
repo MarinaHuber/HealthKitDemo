@@ -8,11 +8,12 @@
 import CoreGPX
 import Foundation
 import os
+import HealthKit
 
 
 enum WorkoutMapper {
     
-    static func parse() -> [GPXLocation] {
+    static func parseGPX() -> [GPXLocation] {
         var locations: [GPXLocation] = []
         guard let fileUrl = Bundle.main.url(forResource: "import", withExtension: "gpx") else {
             os_log("Could not find file", type: .error)
@@ -34,10 +35,10 @@ enum WorkoutMapper {
                     
                     if let heartRateString = trackPoint.extensions?["gpxtpx:TrackPointExtension"]["gpxtpx:hr"].text,
                        let speedString = trackPoint.extensions?["gpxtpx:TrackPointExtension"]["gpxtpx:speed"].text,
-                       let hrDouble = Int(heartRateString),
+                       let heartRate = Double(heartRateString),
                        let speed = Double(speedString)
                     {
-                        let gpxLocation = GPXLocation.init(coordinates: location, heartRate: hrDouble, speed: speed, course: nil)
+                        let gpxLocation = GPXLocation(coordinates: location, startTime: location.timestamp, heartRate: heartRate, speed: speed, course: nil)
                         locations.append(gpxLocation)
                     }
                 }

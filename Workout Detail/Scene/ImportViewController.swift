@@ -9,11 +9,11 @@ import UIKit
 import os
 import CoreGPX
 import CoreLocation
-import HealthKit
+//import HealthKit
 
 class ImportViewController: UIViewController {
-    
-    private let arrayWorkout = WorkoutMapper.parse()
+    #warning("workoutList not used")
+    private let workoutList = WorkoutMapper.parseGPX()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,38 +21,33 @@ class ImportViewController: UIViewController {
 
     @IBAction func importDataTapped(_ sender: UIButton) {
         self.authorizeHealthKit()
-        self.writeToHealthKit(locations: arrayWorkout)
-  }
-    
-    private func authorizeHealthKit() {
-      
-      HealthKitSetupAssistant.authorizeHealthKit { (authorized, error) in
-        
-        guard authorized else {
-          
-          let baseMessage = "HealthKit Authorization Failed"
-          
-          if let error = error {
-            os_log("\(baseMessage). Reason: \(error.localizedDescription)")
-          } else {
-            print(baseMessage)
-          }
-          
-          return
-        }
-        
-        os_log("HealthKit Successfully Authorized.")
-      }
-      
     }
     
-    func writeToHealthKit(locations: [GPXLocation]) {
-        //TODO: write to heathkit
-    } 
+    private func authorizeHealthKit() {
+        HealthManager.shared.requestAuthorization { (success, error) in
+            guard success else {
+              let baseMessage = "HealthKit Authorization Failed"
+              
+              if let error = error {
+                os_log("\(baseMessage). Reason: \(error.localizedDescription)")
+              } else {
+                print(baseMessage)
+              }
+              return
+            }
+            os_log("HealthKit Successfully Authorized. Begin workout")
+            #warning("TODO: update healthkit authorisation")
+                self.writeToHealthKit(from: self.workoutList)
+        }
+    }
+    
+    
+    func writeToHealthKit(from model: [GPXLocation]) {
+        HealthManager.shared.setRouteValueToHealthKit(myRoute: model)
+    }
     
     @IBAction func showMap(_ sender: Any) {
         let mvc = MapViewController()
         self.navigationController?.pushViewController(mvc, animated: true)
     }
-    
 }
