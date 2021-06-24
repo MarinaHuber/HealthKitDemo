@@ -47,5 +47,6 @@ enum WorkoutMapper {
         os_log("Finished reading data")
         return locations
     }
+
     
 }

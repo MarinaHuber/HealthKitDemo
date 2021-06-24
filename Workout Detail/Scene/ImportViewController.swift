@@ -12,8 +12,9 @@ import CoreLocation
 //import HealthKit
 
 class ImportViewController: UIViewController {
-    #warning("workoutList not used")
+    
     private let workoutList = WorkoutMapper.parseGPX()
+    private var workoutHeartRate: Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,9 +44,11 @@ class ImportViewController: UIViewController {
     
     
     func writeToHealthKit(from model: [GPXLocation]) {
-        HealthManager.shared.setRouteValueToHealthKit(myRoute: model)
+        HealthManager.shared.setRouteValueToHealthKit(for: model)
+        HealthManager.shared.setHRValueToHealthKit(myHeartRate: model)
+        HealthManager.shared.setSpeedValueToHealthKit(myHeartRate: model)
     }
-    
+   
     @IBAction func showMap(_ sender: Any) {
         let mvc = MapViewController()
         self.navigationController?.pushViewController(mvc, animated: true)

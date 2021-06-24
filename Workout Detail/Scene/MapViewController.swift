@@ -15,11 +15,8 @@ import CoreGPX
 import HealthKit
 
 class MapViewController: UIViewController, MKMapViewDelegate {
- 
+    
     private var mapView = MKMapView()
-    private var regionRadius: CLLocationDistance = 4000
-    private var locationSamples: [CLLocation] = []
-
     private lazy var chartButton: UIButton = {
         let button = UIButton(type: .custom)
         button.addTarget(self, action: #selector(handleButtonPressed(_:)), for: .touchUpInside)
@@ -46,7 +43,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         self.setupViews()
         self.setupConstraints()
         self.mapView.delegate = self
-
+        
     }
     
     func setupViews() {
@@ -68,98 +65,56 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     func drawRoute() {
         HealthManager.shared.getRouteValueFromHealthKit { locations, error in
-          //  locations.forEach { location in
-                let coords = locations.map { location in CLLocationCoordinate2D(
-                            latitude: CLLocationDegrees(location.coordinate.latitude),
-                            longitude: CLLocationDegrees(location.coordinate.longitude))
-                            }
-
-                let myPolyline = MKPolyline(coordinates: coords, count: coords.count)
-                DispatchQueue.main.async {
+            let coords = locations.map { location in CLLocationCoordinate2D(
+                latitude: CLLocationDegrees(location.coordinate.latitude),
+                longitude: CLLocationDegrees(location.coordinate.longitude))
+            }
+            
+            let myPolyline = MKPolyline(coordinates: coords, count: coords.count)
+            DispatchQueue.main.async {
                 self.mapView.addOverlay(myPolyline)
-              }
-           // }
-        }
-        
-        
-        guard locationSamples.count > 0 else {
-            return
-        }
-            self.locationSamples.forEach { location in
-                let coords = self.locationSamples.map { _ in CLLocationCoordinate2D(
-                            latitude: CLLocationDegrees(location.coordinate.latitude),
-                            longitude: CLLocationDegrees(location.coordinate.longitude))
-                            }
-
-                let myPolyline = MKPolyline(coordinates: coords, count: coords.count)
-                DispatchQueue.main.async {
-                self.mapView.addOverlay(myPolyline)
-              }
             }
         }
-         
-
-        
+    }
+    
     
     func addRoute() {
         let workoutList = WorkoutMapper.parseGPX()
         self.drawRoute()
-    
+        
         let centerLocation = workoutList.map { $0.coordinates }
-        self.centerMapOnStartLocation(location: centerLocation.last!)
+        self.centerMapOnLocation(location: centerLocation.first!)
     }
+    
     
     @objc func handleButtonPressed(_ sender: UIButton) {
         let chart = ChartViewController()
         self.navigationController?.presentPanModal(chart)
     }
-
-
+    
+    
     // MARK: - MapKit
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if let routePolyline = overlay as? MKPolyline {
             let renderer = MKPolylineRenderer(polyline: routePolyline)
-            renderer.strokeColor = .green
-            renderer.lineWidth = 6
+            renderer.strokeColor = UIColor(named: "Route")
+            renderer.lineWidth = 7
             return renderer
         }
-
+        
         return MKOverlayRenderer()
     }
     
     // MARK: - Region Zoom
-    func centerMapOnStartLocation(location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegion(center: location.coordinate,
-                                                  latitudinalMeters: regionRadius,
-                                                  longitudinalMeters: regionRadius)
-      mapView.setRegion(coordinateRegion, animated: true)
-    }
-}
     
-    #warning("center map improve")
-    //*******
-    //                let latitudes = locations.map {
-    //                    $0.coordinate.latitude
-    //                }
-    //                let longitudes = locations.map {
-    //                    $0.coordinate.longitude
-    //                }
-    //
-    //                // Outline map region to display
-    //                guard let maxLat = latitudes.max() else { fatalError("Unable to get maxLat") }
-    //                guard let minLat = latitudes.min() else { return }
-    //                guard let maxLong = longitudes.max() else { return }
-    //                guard let minLong = longitudes.min() else { return }
-    //
-    //                if done {
-    //                    let mapCenter = CLLocationCoordinate2D(latitude: (minLat + maxLat) / 2, longitude: (minLong + maxLong) / 2)
-    //                    let mapSpan = MKCoordinateSpan(latitudeDelta: (maxLat - minLat) * mapDisplayAreaPadding,
-    //                                                  longitudeDelta: (maxLong - minLong) * mapDisplayAreaPadding)
-    //
-    //                    DispatchQueue.main.async {
-    //                        // Push to main thread to drop dots on the map.
-    //                        // Without this a warning will occur.
-    //                        self.region = MKCoordinateRegion(center: mapCenter, span: mapSpan)
-    //                        locations.forEach { (location) in
-    //                            self.overlayRoute(at: location)
-    //                        }
+    func centerMapOnLocation(location: CLLocation) {
+        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+        DispatchQueue.main.async {
+            self.mapView.setRegion(region, animated: true)
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = location.coordinate
+            self.mapView.addAnnotation(annotation)
+        }
+    }
+    
+}

@@ -24,6 +24,7 @@
 		9C5327882662C0CF007F58E3 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5327872662C0CF007F58E3 /* HealthKit.framework */; };
 		9C6CA5C52667CF3900577C4A /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6CA5C32667CF3900577C4A /* HealthManager.swift */; };
 		9C6CA5C62667CF3900577C4A /* HealthProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6CA5C42667CF3900577C4A /* HealthProtocols.swift */; };
+		9C967C3D26748D2800C5BC1C /* AAInfographics in Frameworks */ = {isa = PBXBuildFile; productRef = 9C967C3C26748D2800C5BC1C /* AAInfographics */; };
 		9CEFE7E5266A8B8000A31D44 /* import.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9CEFE7E4266A8B8000A31D44 /* import.gpx */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 			files = (
 				623984FD2656625900965A3B /* CoreGPX in Frameworks */,
 				9C5327882662C0CF007F58E3 /* HealthKit.framework in Frameworks */,
+				9C967C3D26748D2800C5BC1C /* AAInfographics in Frameworks */,
 				9C1BD306265DA4B9000E167B /* SnapKit in Frameworks */,
 				9C1BD30D265DA78F000E167B /* PanModal in Frameworks */,
 			);
@@ -179,6 +181,7 @@
 				623984FC2656625900965A3B /* CoreGPX */,
 				9C1BD305265DA4B9000E167B /* SnapKit */,
 				9C1BD30C265DA78F000E167B /* PanModal */,
+				9C967C3C26748D2800C5BC1C /* AAInfographics */,
 			);
 			productName = "Workout Detail";
 			productReference = 62F9C61F26565C4A00D77B53 /* Workout Detail.app */;
@@ -211,6 +214,7 @@
 				623984FB2656625900965A3B /* XCRemoteSwiftPackageReference "CoreGPX" */,
 				9C1BD304265DA4B9000E167B /* XCRemoteSwiftPackageReference "SnapKit" */,
 				9C1BD30B265DA78F000E167B /* XCRemoteSwiftPackageReference "PanModal" */,
+				9C967C3B26748D2800C5BC1C /* XCRemoteSwiftPackageReference "AAChartKit-Swift" */,
 			);
 			productRefGroup = 62F9C62026565C4A00D77B53 /* Products */;
 			projectDirPath = "";
@@ -479,6 +483,14 @@
 				minimumVersion = 1.2.7;
 			};
 		};
+		9C967C3B26748D2800C5BC1C /* XCRemoteSwiftPackageReference "AAChartKit-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AAChartModel/AAChartKit-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -496,6 +508,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9C1BD30B265DA78F000E167B /* XCRemoteSwiftPackageReference "PanModal" */;
 			productName = PanModal;
+		};
+		9C967C3C26748D2800C5BC1C /* AAInfographics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C967C3B26748D2800C5BC1C /* XCRemoteSwiftPackageReference "AAChartKit-Swift" */;
+			productName = AAInfographics;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

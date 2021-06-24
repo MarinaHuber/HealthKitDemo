@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "AAInfographics",
+        "repositoryURL": "https://github.com/AAChartModel/AAChartKit-Swift.git",
+        "state": {
+          "branch": null,
+          "revision": "9be1dcdf92c5b9ed9e2b83f4dd9fbd801e40e1ce",
+          "version": "6.0.0"
+        }
+      },
+      {
         "package": "CoreGPX",
         "repositoryURL": "https://github.com/vincentneo/CoreGPX",
         "state": {

@@ -1,13 +1,18 @@
 
 
 import Foundation
-import  HealthKit
+import HealthKit
+import CoreLocation
 
-typealias HealthAuthCompletionBlock = (_ success: Bool, _ error: Error?) -> Void
-typealias HealthGetValueCompletionBlock = (_ value: Double, _ success: Bool) -> Void
-typealias HealthSetValueCompletionBlock = (_ value: HKWorkout, _ success: Bool) -> Void
+typealias HealthAuthCompletionBlock = (_ success: Bool, _ error: Error?) -> ()
+typealias HealthGetRouteCompletionBlock = ([CLLocation], Error?) -> ()
+typealias HealthSetHRCompletionBlock = ([Double], Error?) -> ()
 
+#warning("finish delegate methods")
 protocol HealthDelegate: class {
     func requestAuthorization(completion: @escaping HealthAuthCompletionBlock)
-    func getValueForType(_ type: HealthValueType, completion: @escaping HealthGetValueCompletionBlock)
+    func setRouteValueToHealthKit(for myRoute: [GPXLocation])
+    func getRouteValueFromHealthKit(completion: @escaping HealthGetRouteCompletionBlock)
+    func setHRValueToHealthKit(myHeartRate: [GPXLocation])
+    func getHRValueFromHealthkit(completion: @escaping HealthSetHRCompletionBlock)
 }
