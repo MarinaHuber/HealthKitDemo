@@ -25,6 +25,9 @@
 		9C6CA5C52667CF3900577C4A /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6CA5C32667CF3900577C4A /* HealthManager.swift */; };
 		9C6CA5C62667CF3900577C4A /* HealthProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6CA5C42667CF3900577C4A /* HealthProtocols.swift */; };
 		9C967C3D26748D2800C5BC1C /* AAInfographics in Frameworks */ = {isa = PBXBuildFile; productRef = 9C967C3C26748D2800C5BC1C /* AAInfographics */; };
+		9CEAAF482689CA24004976C7 /* HeartRateChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEAAF472689CA24004976C7 /* HeartRateChartView.swift */; };
+		9CEAAF4C2689CA32004976C7 /* SpeedChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEAAF4B2689CA32004976C7 /* SpeedChartView.swift */; };
+		9CEAAF4F2689CA41004976C7 /* PaceChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEAAF4E2689CA41004976C7 /* PaceChartView.swift */; };
 		9CEFE7E5266A8B8000A31D44 /* import.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9CEFE7E4266A8B8000A31D44 /* import.gpx */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +49,9 @@
 		9C5327872662C0CF007F58E3 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		9C6CA5C32667CF3900577C4A /* HealthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
 		9C6CA5C42667CF3900577C4A /* HealthProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthProtocols.swift; sourceTree = "<group>"; };
+		9CEAAF472689CA24004976C7 /* HeartRateChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateChartView.swift; sourceTree = "<group>"; };
+		9CEAAF4B2689CA32004976C7 /* SpeedChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedChartView.swift; sourceTree = "<group>"; };
+		9CEAAF4E2689CA41004976C7 /* PaceChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaceChartView.swift; sourceTree = "<group>"; };
 		9CEFE7E4266A8B8000A31D44 /* import.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = import.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,6 +143,7 @@
 		9C53277E2662B8B2007F58E3 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				9CEAAF462689CA05004976C7 /* Views */,
 				9C1BD316265FBD41000E167B /* ChartViewController.swift */,
 				9C1BD310265DAA4B000E167B /* MapViewController.swift */,
 				62F9C62626565C4A00D77B53 /* ImportViewController.swift */,
@@ -159,6 +166,16 @@
 				9C6CA5C42667CF3900577C4A /* HealthProtocols.swift */,
 			);
 			path = "Health Manager";
+			sourceTree = "<group>";
+		};
+		9CEAAF462689CA05004976C7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9CEAAF472689CA24004976C7 /* HeartRateChartView.swift */,
+				9CEAAF4B2689CA32004976C7 /* SpeedChartView.swift */,
+				9CEAAF4E2689CA41004976C7 /* PaceChartView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,10 +262,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C6CA5C62667CF3900577C4A /* HealthProtocols.swift in Sources */,
+				9CEAAF4C2689CA32004976C7 /* SpeedChartView.swift in Sources */,
 				62F9C62726565C4A00D77B53 /* ImportViewController.swift in Sources */,
 				9C1BD31A265FC28A000E167B /* Workout.swift in Sources */,
 				9C5327782662812D007F58E3 /* WorkoutMapper.swift in Sources */,
 				62F9C62326565C4A00D77B53 /* AppDelegate.swift in Sources */,
+				9CEAAF482689CA24004976C7 /* HeartRateChartView.swift in Sources */,
+				9CEAAF4F2689CA41004976C7 /* PaceChartView.swift in Sources */,
 				62F9C62526565C4A00D77B53 /* SceneDelegate.swift in Sources */,
 				9C1BD311265DAA4B000E167B /* MapViewController.swift in Sources */,
 				623985002656754400965A3B /* GPXWaypoint+Location.swift in Sources */,

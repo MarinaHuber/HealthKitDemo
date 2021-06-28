@@ -119,6 +119,7 @@ extension HealthManager: HealthDelegate {
         var totalWorkouts = [CLLocation]()
         let routeQuery = HKAnchoredObjectQuery(type: HKSeriesType.workoutRoute(), predicate: nil, anchor: nil, limit: HKObjectQueryNoLimit) { (query, samples, deletedObjectsOrNil, newAnchor, errorOrNil) in
             guard let samples = samples, let _ = deletedObjectsOrNil else {
+                #warning("Add alert for when notauthorized")
                 fatalError("*** An error occurred during the initial query: \(errorOrNil!.localizedDescription) ***")
             }
             guard samples.count > 0 else {
