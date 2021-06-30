@@ -31,7 +31,7 @@ class HeartRateChartView: UIView {
     
     private func setupConstraints() {
         self.aaChartViewHR.snp.makeConstraints { (make) in
-            make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(10)
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.top)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview()
             make.height.equalTo(180)
@@ -47,13 +47,13 @@ class HeartRateChartView: UIView {
     private func configureChart(data: [Double]) {
         let aaChartModel = AAChartModel()
             .chartType(.areaspline)
+            .title("Beat per second")
             .animationType(.easeInQuint)
             .axesTextColor(AAColor.black)
             .legendEnabled(false)
             .margin(top: 10.0, right: 10.0, bottom: 20.0, left: 30.0)
             .series([
                 AASeriesElement()
-                  //  .type(.errorbar)
                     .color(AAColor.rgbaColor(201,0,22,0.7)) // lineColor
                     .lineWidth(2.8)
                     .enableMouseTracking(false)
@@ -68,7 +68,7 @@ class HeartRateChartView: UIView {
             .allowDecimals(false)
             .lineWidth(0)
             .gridLineWidth(0)
-            .alternateGridColor("#F9F9FA")
+            .alternateGridColor("#e6e6e6")
             .tickInterval(Float(200/10.0))
         aaOptions.yAxis?.labels(AALabels()
                                     .x(-30)

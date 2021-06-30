@@ -28,8 +28,7 @@ class HealthManager: NSObject {
 
 
 extension HealthManager: HealthDelegate {
-    
-    
+        
     // MARK: - Authorisation
     
     #warning("check authorisation so it's not crashing when added to HK before")
@@ -62,9 +61,10 @@ extension HealthManager: HealthDelegate {
     }
     
     // MARK: - Route & Distance
+    
     func setRouteValueToHealthKit(for myRoute: [GPXLocation]) {
         var previousLocation: CLLocation?
-        var totalDistance: Double = 0
+        var totalDistance: Double = 0.0
         
         myRoute.forEach {
             
@@ -116,7 +116,7 @@ extension HealthManager: HealthDelegate {
     }
     
     func getRouteValueFromHealthKit(completion: @escaping (([CLLocation], Error?) -> Void)) {
-        var totalWorkouts = [CLLocation]()
+        var totalWorkouts: [CLLocation] = []
         let routeQuery = HKAnchoredObjectQuery(type: HKSeriesType.workoutRoute(), predicate: nil, anchor: nil, limit: HKObjectQueryNoLimit) { (query, samples, deletedObjectsOrNil, newAnchor, errorOrNil) in
             guard let samples = samples, let _ = deletedObjectsOrNil else {
                 #warning("Add alert for when notauthorized")
@@ -156,7 +156,7 @@ extension HealthManager: HealthDelegate {
     
     // MARK: - Heart rate
     func setHRValueToHealthKit(myHeartRate: [GPXLocation]) {
-        var heartRate: Double = 0
+        var heartRate: Double = 0.0
         let unit = HKUnit(from: "count/min")
         
         myHeartRate.forEach {
@@ -182,7 +182,7 @@ extension HealthManager: HealthDelegate {
     
     func getHRValueFromHealthkit(completion: @escaping (([Double], Error?) -> Void)) {
         #warning("check authorisation")
-        var array = [Double]()
+        var arrayHR: [Double] = []
         guard let sampleType = HKObjectType
                 .quantityType(forIdentifier: .heartRate) else {
             completion([], nil)
@@ -194,10 +194,10 @@ extension HealthManager: HealthDelegate {
                 return
             }
             for sample in samples {
-                array.append(sample.quantity.doubleValue(for: HKUnit(from: "count/min")))
+                arrayHR.append(sample.quantity.doubleValue(for: HKUnit(from: "count/min")))
             }
             DispatchQueue.main.async {
-                completion(array, nil)
+                completion(arrayHR, nil)
             }
         }
         self.store.execute(heartQuery)
@@ -206,7 +206,7 @@ extension HealthManager: HealthDelegate {
 
     // MARK: - Speed
     func setSpeedValueToHealthKit(myHeartRate: [GPXLocation]) {
-        var speed: Double = 0
+        var speed: Double = 0.0
         let unit = HKUnit.meter().unitDivided(by: HKUnit.second())
         
         myHeartRate.forEach {
@@ -232,58 +232,64 @@ extension HealthManager: HealthDelegate {
     
     func getSpeedValueFromHealthkit(completion: @escaping (([Double], Error?) -> Void)) {
         #warning("check authorisation")
-        var array = [Double]()
+        var arraySpeed: [Double] = []
         guard let sampleType = HKObjectType
                 .quantityType(forIdentifier: .walkingSpeed) else {
             completion([], nil)
             return
         }
-        let heartQuery = HKSampleQuery(sampleType: sampleType, predicate: nil, limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil) { (query, speed, error) in
+        let speedQuery = HKSampleQuery(sampleType: sampleType, predicate: nil, limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil) { (query, speed, error) in
             
             guard let samples = speed as? [HKQuantitySample] else {
                 fatalError("*** NIL found in speed ***")
             }
             for sample in samples {
-                array.append(sample.quantity.doubleValue(for: HKUnit.meter().unitDivided(by: HKUnit.second())))
+                arraySpeed.append(sample.quantity.doubleValue(for: HKUnit.meter().unitDivided(by: HKUnit.second())))
             }
             DispatchQueue.main.async {
-                completion(array, nil)
+                completion(arraySpeed, nil)
             }
         }
-        self.store.execute(heartQuery)
+        self.store.execute(speedQuery)
         
     }
     
     
     // MARK: - Distance
     
-    func getDistanceSum(completion: @escaping (Double, Error?) -> ()) {
-        guard let sampleType = HKObjectType
-                .quantityType(forIdentifier: .distanceWalkingRunning) else {
-            completion(0, nil)
-            return
+    func distanceCollectionQuery(completion: @escaping (([Double], Error?) -> Void)) {
+        var array: [Double] = []
+        guard let distanceType = HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning) else {
+            fatalError("*** Unable to get the step count type ***")
         }
         
-        let statisticsSumQuery = HKStatisticsQuery(quantityType: sampleType,
-                                                   quantitySamplePredicate: nil,
-                                                   options: .cumulativeSum) {
-            query, result, error in
-            
-            if result != nil {
-                var total = 0.0
-                
-                if let quantity = result?.sumQuantity() {
-                    let unit = HKUnit.meter()
-                    total = quantity.doubleValue(for: unit)
-                }
-                
-                DispatchQueue.main.async {
-                    completion(total, nil)
-                }
-                
+        var interval = DateComponents()
+        interval.second = 1
+        
+        let calendar = Calendar.current
+        let anchorDate = calendar.date(bySettingHour: 12, minute: 0, second: 0, of: Date())
+        
+        let query = HKStatisticsCollectionQuery.init(quantityType: distanceType,
+                                                     quantitySamplePredicate: nil,
+                                                     options: [.separateBySource],
+                                                     anchorDate: anchorDate!,
+                                                     intervalComponents: interval)
+        
+        query.initialResultsHandler = {
+            query, results, error in
+            for source in (results!.sources()) {
+                results?.enumerateStatistics(from: self.workoutList.first!.startTime,
+                                             to: self.workoutList.last!.startTime, with: { (result, stop) in
+                                                let meters = result.sumQuantity(for: source)?.doubleValue(for: HKUnit.meter()) ?? 0
+                                                array.append(meters)
+                                                DispatchQueue.main.async {
+                                                    completion(array, nil)
+                                                }
+                                             })
             }
         }
-        self.store.execute(statisticsSumQuery)
+        
+        self.store.execute(query)
     }
     
 }

@@ -29,7 +29,7 @@ class SpeedChartView: UIView {
     
     private func setupConstraints() {
         self.aaChartViewHR.snp.makeConstraints { (make) in
-            make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(10)
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.top)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview()
             make.height.equalTo(180)
@@ -45,6 +45,7 @@ class SpeedChartView: UIView {
     private func configureChart(data: [Double]) {
         let aaChartModel = AAChartModel()
             .chartType(.areaspline)
+            .title("m/sec")
             .animationType(.easeInQuint)
             .xAxisVisible(false)
             .axesTextColor(AAColor.black)
@@ -52,8 +53,7 @@ class SpeedChartView: UIView {
             .margin(top: 10.0, right: 10.0, bottom: 20.0, left: 30.0)
             .series([
                 AASeriesElement()
-                   // .type(.line)
-                    .color(AAColor.rgbaColor(255,215,0,0.7)) // lineColor
+                    .color(AAColor.rgbaColor(223, 32, 32, 0.7)) // lineColor
                     .lineWidth(2.8)
                     .enableMouseTracking(false)
                     .zIndex(1)
@@ -63,12 +63,12 @@ class SpeedChartView: UIView {
         let aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
         // Y axis
         aaOptions.yAxis?
-            .max(10).min(0)
+            .max(8).min(0)
             .allowDecimals(false)
             .lineWidth(0)
             .gridLineWidth(0)
-            .alternateGridColor("#F9F9FA")
-            .tickInterval(Float(10/5.0))
+            .alternateGridColor("#e6e6e6")
+            .tickInterval(Float(8/4.0))
         aaOptions.yAxis?.labels(AALabels()
                                     .x(-30)
                                     .align(AAChartAlignType.left.rawValue)
