@@ -39,15 +39,15 @@ class HeartRateChartView: UIView {
     }
     
     private func getHeartRate() {
-        HealthManager.shared.getHRValueFromHealthkit { [weak self] (heartRates, error) in
-            self?.configureChart(data: heartRates)
+        HealthManager.shared.getValueFromHealthKit(.heartRate) { [weak self] (heartRates, error) in
+            guard let `self` = self else { return }
+            self.configureChart(data: heartRates)
         }
     }
     
     private func configureChart(data: [Double]) {
         let aaChartModel = AAChartModel()
             .chartType(.areaspline)
-            .title("Beat per second")
             .animationType(.easeInQuint)
             .axesTextColor(AAColor.black)
             .legendEnabled(false)

@@ -29,7 +29,6 @@ class ChartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.setupGraphSegmentedControl()
         self.view.backgroundColor = .white
         self.setupView()

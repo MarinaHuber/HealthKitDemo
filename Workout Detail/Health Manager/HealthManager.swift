@@ -6,7 +6,7 @@ import os
 import CoreLocation
 
 enum HealthValueType {
-    case distance
+    case speed
     case heartRate
 }
 
@@ -26,6 +26,27 @@ class HealthManager: NSObject {
     
 }
 
+extension HealthManager {
+    
+    private func getIdentifierForType(_ type: HealthValueType) -> HKQuantityTypeIdentifier {
+        switch type {
+        case .heartRate:
+            return .heartRate
+        case .speed:
+            return .walkingSpeed
+        }
+    }
+    
+    private func getUnitForType(_ type: HealthValueType) -> HKUnit {
+        switch type {
+        case .heartRate:
+            return HKUnit(from: "count/min")
+        case .speed:
+            return HKUnit.meter().unitDivided(by: HKUnit.second())
+        }
+    }
+    
+}
 
 extension HealthManager: HealthDelegate {
         
@@ -117,12 +138,14 @@ extension HealthManager: HealthDelegate {
     
     func getRouteValueFromHealthKit(completion: @escaping (([CLLocation], Error?) -> Void)) {
         var totalWorkouts: [CLLocation] = []
+        
         let routeQuery = HKAnchoredObjectQuery(type: HKSeriesType.workoutRoute(), predicate: nil, anchor: nil, limit: HKObjectQueryNoLimit) { (query, samples, deletedObjectsOrNil, newAnchor, errorOrNil) in
             guard let samples = samples, let _ = deletedObjectsOrNil else {
                 #warning("Add alert for when notauthorized")
                 fatalError("*** An error occurred during the initial query: \(errorOrNil!.localizedDescription) ***")
             }
             guard samples.count > 0 else {
+                os_log("Error samples are 0")
                 return
             }
             let route = samples.first as! HKWorkoutRoute
@@ -155,24 +178,26 @@ extension HealthManager: HealthDelegate {
     }
     
     // MARK: - Heart rate
-    func setHRValueToHealthKit(myHeartRate: [GPXLocation]) {
+    func setHRValueToHealthKit(_ type: HealthValueType, for model: [GPXLocation]) {
         var heartRate: Double = 0.0
-        let unit = HKUnit(from: "count/min")
+        let unit = self.getUnitForType(type)
+        guard let sampleType = HKObjectType.quantityType(forIdentifier: getIdentifierForType(type)) else {
+            return
+        }
         
-        myHeartRate.forEach {
+        model.forEach {
             heartRate = $0.heartRate
             
             let quantity = HKQuantity(unit: unit, doubleValue: heartRate)
-            let type = HKQuantityType.quantityType(forIdentifier: .heartRate)!
             
-            let heartRateSample = HKQuantitySample(type: type, quantity: quantity, start: self.workoutList.first!.startTime, end: self.workoutList.last!.startTime)
+            let heartRateSample = HKQuantitySample(type: sampleType, quantity: quantity, start: self.workoutList.first!.startTime, end: self.workoutList.last!.startTime)
             
             self.samples.append(heartRateSample)
             
             DispatchQueue.main.async {
                 self.store.save(heartRateSample) { (finished, error) in
                     if !finished {
-                        os_log("Error occured saving the HR sample \(heartRateSample). In your app, try to handle this gracefully. The error was: \(error! as NSObject).")
+                        os_log("Error occured saving the HR sample \(heartRateSample).The error was: \(error! as NSObject).")
                     }
                     os_log("Saving the HR sample \(heartRateSample).")
                 }
@@ -180,120 +205,61 @@ extension HealthManager: HealthDelegate {
         }
     }
     
-    func getHRValueFromHealthkit(completion: @escaping (([Double], Error?) -> Void)) {
-        #warning("check authorisation")
-        var arrayHR: [Double] = []
-        guard let sampleType = HKObjectType
-                .quantityType(forIdentifier: .heartRate) else {
-            completion([], nil)
-            return
-        }
-        let heartQuery = HKSampleQuery(sampleType: sampleType, predicate: nil, limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil) { (query, heartRates, error) in
-            
-            guard let samples = heartRates as? [HKQuantitySample] else {
-                return
-            }
-            for sample in samples {
-                arrayHR.append(sample.quantity.doubleValue(for: HKUnit(from: "count/min")))
-            }
-            DispatchQueue.main.async {
-                completion(arrayHR, nil)
-            }
-        }
-        self.store.execute(heartQuery)
-        
-    }
 
     // MARK: - Speed
-    func setSpeedValueToHealthKit(myHeartRate: [GPXLocation]) {
+    func setValueToHealthKit(_ type: HealthValueType, for model: [GPXLocation]) {
         var speed: Double = 0.0
-        let unit = HKUnit.meter().unitDivided(by: HKUnit.second())
+        let unit = self.getUnitForType(type)
+        guard let sampleType = HKObjectType.quantityType(forIdentifier: getIdentifierForType(type)) else {
+            return
+        }
         
-        myHeartRate.forEach {
+        model.forEach {
             speed = $0.speed
             
             let quantity = HKQuantity(unit: unit, doubleValue: speed)
-            let type = HKQuantityType.quantityType(forIdentifier: .walkingSpeed)!
             
-            let speedSample = HKQuantitySample(type: type, quantity: quantity, start: self.workoutList.first!.startTime, end: self.workoutList.last!.startTime)
+            let speedSample = HKQuantitySample(type: sampleType, quantity: quantity, start: self.workoutList.first!.startTime, end: self.workoutList.last!.startTime)
             
             self.samples.append(speedSample)
             
             DispatchQueue.main.async {
                 self.store.save(speedSample) { (finished, error) in
                     if !finished {
-                        os_log("Error occured saving the HR sample \(speedSample). In your app, try to handle this gracefully. The error was: \(error! as NSObject).")
+                        os_log("Error occured saving the HR sample \(speedSample). The error was: \(error! as NSObject).")
                     }
-                    os_log("Saving the HR sample \(speedSample).")
+                    os_log("Saving the sample \(speedSample).")
                 }
             }
         }
     }
     
-    func getSpeedValueFromHealthkit(completion: @escaping (([Double], Error?) -> Void)) {
-        #warning("check authorisation")
-        var arraySpeed: [Double] = []
-        guard let sampleType = HKObjectType
-                .quantityType(forIdentifier: .walkingSpeed) else {
+    func getValueFromHealthKit(_ type: HealthValueType, completion: @escaping HealthGetValueCompletionBlock) {
+        var array: [Double] = []
+        guard let sampleType = HKObjectType.quantityType(forIdentifier: self.getIdentifierForType(type)) else {
             completion([], nil)
             return
         }
-        let speedQuery = HKSampleQuery(sampleType: sampleType, predicate: nil, limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil) { (query, speed, error) in
+        let heartQuery = HKSampleQuery(sampleType: sampleType, predicate: nil, limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil) {
+            (query, heartRates, error) in
             
-            guard let samples = speed as? [HKQuantitySample] else {
-                fatalError("*** NIL found in speed ***")
+            guard let samples = heartRates as? [HKQuantitySample] else {
+                return
             }
             for sample in samples {
-                arraySpeed.append(sample.quantity.doubleValue(for: HKUnit.meter().unitDivided(by: HKUnit.second())))
+                array.append(sample.quantity.doubleValue(for: self.getUnitForType(type)))
             }
             DispatchQueue.main.async {
-                completion(arraySpeed, nil)
+                completion(array, nil)
             }
         }
-        self.store.execute(speedQuery)
+        self.store.execute(heartQuery)
         
-    }
-    
-    
-    // MARK: - Distance
-    
-    func distanceCollectionQuery(completion: @escaping (([Double], Error?) -> Void)) {
-        var array: [Double] = []
-        guard let distanceType = HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning) else {
-            fatalError("*** Unable to get the step count type ***")
-        }
-        
-        var interval = DateComponents()
-        interval.second = 1
-        
-        let calendar = Calendar.current
-        let anchorDate = calendar.date(bySettingHour: 12, minute: 0, second: 0, of: Date())
-        
-        let query = HKStatisticsCollectionQuery.init(quantityType: distanceType,
-                                                     quantitySamplePredicate: nil,
-                                                     options: [.separateBySource],
-                                                     anchorDate: anchorDate!,
-                                                     intervalComponents: interval)
-        
-        query.initialResultsHandler = {
-            query, results, error in
-            for source in (results!.sources()) {
-                results?.enumerateStatistics(from: self.workoutList.first!.startTime,
-                                             to: self.workoutList.last!.startTime, with: { (result, stop) in
-                                                let meters = result.sumQuantity(for: source)?.doubleValue(for: HKUnit.meter()) ?? 0
-                                                array.append(meters)
-                                                DispatchQueue.main.async {
-                                                    completion(array, nil)
-                                                }
-                                             })
-            }
-        }
-        
-        self.store.execute(query)
     }
     
 }
 
+// MARK: - Route
 extension HealthManager {
     
     func addRoute(to workout: HKWorkout) {
@@ -304,16 +270,3 @@ extension HealthManager {
         })
     }
 }
-
-
-
-//*****    in the pace: 6.52 minutes/km.
-
-//  to get seconds to minutes 2,700 seconds x 0.0166 = 36 minutes
-//
-//    So, it takes you 6.52 minutes to run 1 km ("pace")
-
-//use this to calculate pace distance % time = Pace per seconds
-
-
-

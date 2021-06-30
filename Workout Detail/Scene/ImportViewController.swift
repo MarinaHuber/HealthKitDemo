@@ -45,8 +45,8 @@ class ImportViewController: UIViewController {
     
     func writeToHealthKit(from model: [GPXLocation]) {
         HealthManager.shared.setRouteValueToHealthKit(for: model)
-        HealthManager.shared.setHRValueToHealthKit(myHeartRate: model)
-        HealthManager.shared.setSpeedValueToHealthKit(myHeartRate: model)
+        HealthManager.shared.setHRValueToHealthKit(.heartRate, for: model)
+        HealthManager.shared.setValueToHealthKit(.speed, for: model)
     }
    
     @IBAction func showMap(_ sender: Any) {

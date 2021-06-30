@@ -40,8 +40,8 @@ class PaceChartView: UIView {
     }
     
     private func getPace() {
-        
-        HealthManager.shared.getSpeedValueFromHealthkit { (speed, error) in
+        HealthManager.shared.getValueFromHealthKit(.speed) { [weak self] (speed, error) in
+            guard let `self` = self else { return }
             let paceInSeconds = speed.map { 1 / $0 }
             self.configureChart(data: paceInSeconds)
         }
@@ -50,7 +50,6 @@ class PaceChartView: UIView {
     
     private func configureChart(data: [Double]) {
         let aaChartModel = AAChartModel()
-            .title("sec/m")
             .chartType(.areaspline)
             .xAxisVisible(false)
             .animationType(.easeInQuint)

@@ -37,8 +37,9 @@ class SpeedChartView: UIView {
     }
     
     private func getSpeed() {
-        HealthManager.shared.getSpeedValueFromHealthkit { [weak self] (speed, error) in
-            self?.configureChart(data: speed)
+        HealthManager.shared.getValueFromHealthKit(.speed) { [weak self] (speed, error) in
+            guard let `self` = self else { return }
+            self.configureChart(data: speed)
         }
     }
     

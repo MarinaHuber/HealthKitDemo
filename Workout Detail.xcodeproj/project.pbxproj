@@ -422,7 +422,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Workout Detail/Workout Detail.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HBS2B82CVU;
+				DEVELOPMENT_TEAM = 7A4XXVRBXK;
 				INFOPLIST_FILE = "Workout Detail/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -442,7 +442,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Workout Detail/Workout Detail.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HBS2B82CVU;
+				DEVELOPMENT_TEAM = 7A4XXVRBXK;
 				INFOPLIST_FILE = "Workout Detail/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
