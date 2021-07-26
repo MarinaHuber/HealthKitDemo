@@ -1,4 +1,4 @@
-# Workout Detail App
+# HealthKit Workout App
 
 The goal of the project is to make a route map with an overlay with charts which show more detail of a trip.
 
