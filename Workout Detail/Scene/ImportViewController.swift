@@ -9,12 +9,14 @@ import UIKit
 import os
 import CoreGPX
 import CoreLocation
+import SwiftUI
 //import HealthKit
 
 class ImportViewController: UIViewController {
     
     private let workoutList = WorkoutMapper.parseGPX()
     private var workoutHeartRate: Double = 0
+    @ObservedObject var workoutProvider = WorkoutProvider()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +52,8 @@ class ImportViewController: UIViewController {
     }
    
     @IBAction func showMap(_ sender: Any) {
-        let mvc = MapViewController()
-        self.navigationController?.pushViewController(mvc, animated: true)
+        let mvc =  UIHostingController(rootView: MapScreen(workoutProvider: workoutProvider))
+        mvc.modalPresentationStyle = .fullScreen
+        self.navigationController?.present(mvc, animated: true, completion: nil)
     }
 }

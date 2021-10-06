@@ -17,12 +17,21 @@ import HealthKit
 class MapViewController: UIViewController, MKMapViewDelegate {
     
     private var mapView = MKMapView()
+    
     private lazy var chartButton: UIButton = {
         let button = UIButton(type: .custom)
         button.addTarget(self, action: #selector(handleButtonPressed(_:)), for: .touchUpInside)
         button.setImage(UIImage(systemName: "chart.bar.xaxis"), for: .normal)
         button.backgroundColor = .white
         button.layer.cornerRadius = 50 / 2.0
+        return button
+    }()
+    
+    private lazy var menuButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.addAction(UIAction(title: ""){ _ in print("Hello Menu")},for: .menuActionTriggered)
+        button.setImage(UIImage(systemName: "ellipsis.circle"), for: .normal)
+        button.tintColor = .black
         return button
     }()
     
@@ -34,9 +43,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    deinit {
-        os_log("MapViewController deinit")
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +55,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     func setupViews() {
         self.view.addSubview(self.mapView)
         self.view.addSubview(self.chartButton)
+        self.view.addSubview(self.menuButton)
         self.addRoute()
     }
     
@@ -61,6 +68,19 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             make.right.equalToSuperview().offset(-30)
             make.height.width.equalTo(50)
         }
+        self.menuButton.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(50)
+            make.right.equalToSuperview().offset(-30)
+            make.height.width.equalTo(30)
+        }
+    }
+    
+    func addRoute() {
+        let workoutList = WorkoutMapper.parseGPX()
+        self.drawRoute()
+        
+        let centerLocation = workoutList.map { $0.coordinates }
+        self.centerMapOnLocation(location: centerLocation.first!)
     }
     
     func drawRoute() {
@@ -78,20 +98,14 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     
-    func addRoute() {
-        let workoutList = WorkoutMapper.parseGPX()
-        self.drawRoute()
-        
-        let centerLocation = workoutList.map { $0.coordinates }
-        self.centerMapOnLocation(location: centerLocation.first!)
-    }
-    
-    
     @objc func handleButtonPressed(_ sender: UIButton) {
         let chart = ChartViewController()
         self.navigationController?.presentPanModal(chart)
     }
     
+    @objc func handlMenuPressed(_ sender: UIButton) {
+
+    }
     
     // MARK: - MapKit
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {

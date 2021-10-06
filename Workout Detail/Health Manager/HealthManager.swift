@@ -117,9 +117,9 @@ extension HealthManager: HealthDelegate {
         
         if !self.arrayLocation.isEmpty {
             self.routeBuilder.insertRouteData(self.arrayLocation, completion: { (inserted, error) in
-                if !inserted {
-                    fatalError("Error inserting locations: \(error.debugDescription)")
-                }
+//                if !inserted {
+//                    fatalError("Error inserting locations: \(error.debugDescription)")
+//                }
                 DispatchQueue.main.async {
                     self.store.save(hkworkout) { [self] (finished, error) in
         
