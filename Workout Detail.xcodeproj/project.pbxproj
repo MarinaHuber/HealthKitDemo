@@ -48,6 +48,7 @@
 		9C1BD310265DAA4B000E167B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		9C1BD316265FBD41000E167B /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		9C1BD319265FC28A000E167B /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		9C3E89CF27078FDC005315E4 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		9C5327772662812D007F58E3 /* WorkoutMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutMapper.swift; sourceTree = "<group>"; };
 		9C5327852662C0CF007F58E3 /* Workout Detail.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Workout Detail.entitlements"; sourceTree = "<group>"; };
 		9C5327872662C0CF007F58E3 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
@@ -133,6 +134,14 @@
 			path = "Workout Detail";
 			sourceTree = "<group>";
 		};
+		9C3E89CE27078FC2005315E4 /* SwiftIU */ = {
+			isa = PBXGroup;
+			children = (
+				9C3E89CF27078FDC005315E4 /* MapView.swift */,
+			);
+			path = SwiftIU;
+			sourceTree = "<group>";
+		};
 		9C53277C2662B89D007F58E3 /* MappingHelper */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,7 +161,7 @@
 		9C53277E2662B8B2007F58E3 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				9CB3CDA1270F12D80014A362 /* SwiftUI */,
+				9C3E89CE27078FC2005315E4 /* SwiftIU */,
 				9CEAAF462689CA05004976C7 /* Views */,
 				9C1BD316265FBD41000E167B /* ChartViewController.swift */,
 				9C1BD310265DAA4B000E167B /* MapViewController.swift */,
@@ -289,6 +298,7 @@
 				62F9C62326565C4A00D77B53 /* AppDelegate.swift in Sources */,
 				9CB3CDA0270F12A80014A362 /* WorkoutProvider.swift in Sources */,
 				9CEAAF482689CA24004976C7 /* HeartRateChartView.swift in Sources */,
+				9C3E89D027078FDC005315E4 /* MapView.swift in Sources */,
 				9CEAAF4F2689CA41004976C7 /* PaceChartView.swift in Sources */,
 				62F9C62526565C4A00D77B53 /* SceneDelegate.swift in Sources */,
 				9CB3CDA3270F14310014A362 /* Image+Extention.swift in Sources */,
