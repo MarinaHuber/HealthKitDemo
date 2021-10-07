@@ -14,7 +14,6 @@ import StoreKit
 @available(iOS 14.0, *)
 struct MapScreen: View {
     
-    //@StateObject var workoutProvider = WorkoutProvider()
     @ObservedObject var workoutProvider: WorkoutProvider
     
     @State var mapType = 1
