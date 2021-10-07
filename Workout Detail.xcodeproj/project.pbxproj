@@ -29,9 +29,6 @@
 		9CB3CD9F270F12A80014A362 /* MapViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB3CD9C270F12A80014A362 /* MapViewRepresentable.swift */; };
 		9CB3CDA0270F12A80014A362 /* WorkoutProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB3CD9D270F12A80014A362 /* WorkoutProvider.swift */; };
 		9CB3CDA3270F14310014A362 /* Image+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB3CDA2270F14310014A362 /* Image+Extention.swift */; };
-		9CB3CDA8270F17610014A362 /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB3CDA5270F17610014A362 /* MapScreen.swift */; };
-		9CB3CDA9270F17610014A362 /* MapViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB3CDA6270F17610014A362 /* MapViewRepresentable.swift */; };
-		9CB3CDAA270F17610014A362 /* WorkoutProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB3CDA7270F17610014A362 /* WorkoutProvider.swift */; };
 		9CEAAF482689CA24004976C7 /* HeartRateChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEAAF472689CA24004976C7 /* HeartRateChartView.swift */; };
 		9CEAAF4C2689CA32004976C7 /* SpeedChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEAAF4B2689CA32004976C7 /* SpeedChartView.swift */; };
 		9CEAAF4F2689CA41004976C7 /* PaceChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEAAF4E2689CA41004976C7 /* PaceChartView.swift */; };
@@ -169,7 +166,7 @@
 		9C53277E2662B8B2007F58E3 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				9C3E89CE27078FC2005315E4 /* SwiftUI */,
+				9C3E89CE27078FC2005315E4 /* SwiftIU */,
 				9CEAAF462689CA05004976C7 /* Views */,
 				9C1BD316265FBD41000E167B /* ChartViewController.swift */,
 				9C1BD310265DAA4B000E167B /* MapViewController.swift */,
