@@ -24,7 +24,6 @@ struct MapViewRepresentable: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: MKMapView, context: Context) {
-        print("inside updateuiview")
     }
     
     func makeCoordinator() -> Coordinator {

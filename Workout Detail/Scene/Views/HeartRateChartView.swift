@@ -4,9 +4,8 @@
 //
 //  Created by Marina Huber on 28.06.2021..
 //
-
+import AAInfographics_Pro
 import UIKit
-import AAInfographics
 
 
 class HeartRateChartView: UIView {
@@ -49,7 +48,7 @@ class HeartRateChartView: UIView {
         let aaChartModel = AAChartModel()
             .chartType(.areaspline)
             .animationType(.easeInQuint)
-            .axesTextColor(AAColor.black)
+           // .backgroundColor(AAColor.black)
             .legendEnabled(false)
             .margin(top: 10.0, right: 10.0, bottom: 20.0, left: 30.0)
             .series([
@@ -72,7 +71,7 @@ class HeartRateChartView: UIView {
             .tickInterval(Float(200/10.0))
         aaOptions.yAxis?.labels(AALabels()
                                     .x(-30)
-                                    .align(AAChartAlignType.left.rawValue)
+                                    .align(AAChartAlignType.left)
                                     .style(AAStyle()
                                             .color(AAColor.black)
                                             .fontWeight(AAChartFontWeightType.bold)

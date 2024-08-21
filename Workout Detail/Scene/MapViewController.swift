@@ -10,26 +10,26 @@ import SnapKit
 import UIKit
 import MapKit
 import os
-import PanModal
 import CoreGPX
 import HealthKit
 
 class MapViewController: UIViewController, MKMapViewDelegate {
     
-    private var mapView = MKMapView()
-    
+    private var  mapView = MKMapView()
+
     private lazy var chartButton: UIButton = {
         let button = UIButton(type: .custom)
         button.addTarget(self, action: #selector(handleButtonPressed(_:)), for: .touchUpInside)
         button.setImage(UIImage(systemName: "chart.bar.xaxis"), for: .normal)
-        button.backgroundColor = .white
+        button.backgroundColor = .systemBlue
+        button.tintColor = .white
         button.layer.cornerRadius = 50 / 2.0
         return button
     }()
     
     private lazy var menuButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.addAction(UIAction(title: ""){ _ in print("Hello Menu")},for: .menuActionTriggered)
+        button.addAction(UIAction(title: ""){ _ in },for: .menuActionTriggered)
         button.setImage(UIImage(systemName: "ellipsis.circle"), for: .normal)
         button.tintColor = .black
         return button
@@ -100,11 +100,18 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     @objc func handleButtonPressed(_ sender: UIButton) {
         let chart = ChartViewController()
-        self.navigationController?.presentPanModal(chart)
+        chart.modalPresentationStyle = .pageSheet
+        if
+            #available(iOS 15.0, *),
+            let sheet = chart.sheetPresentationController
+        {
+            sheet.detents = [.medium()]
+        }
+        present(chart, animated: true, completion: nil)
     }
-    
-    @objc func handlMenuPressed(_ sender: UIButton) {
 
+    // TO DO: -
+    @objc func handlMenuPressed(_ sender: UIButton) {
     }
     
     // MARK: - MapKit
@@ -123,10 +130,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     func centerMapOnLocation(location: CLLocation) {
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+        self.mapView.setRegion(region, animated: true)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = location.coordinate
         DispatchQueue.main.async {
-            self.mapView.setRegion(region, animated: true)
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = location.coordinate
             self.mapView.addAnnotation(annotation)
         }
     }

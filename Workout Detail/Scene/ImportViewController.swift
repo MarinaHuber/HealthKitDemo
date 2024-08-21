@@ -10,7 +10,7 @@ import os
 import CoreGPX
 import CoreLocation
 import SwiftUI
-//import HealthKit
+import HealthKit
 
 class ImportViewController: UIViewController {
     
@@ -52,7 +52,8 @@ class ImportViewController: UIViewController {
     }
    
     @IBAction func showMap(_ sender: Any) {
-        let mvc =  UIHostingController(rootView: MapScreen(workoutProvider: workoutProvider))
+        let mvc = MapViewController()
+        // UIHostingController(rootView: MapScreen(workoutProvider: self.workoutProvider))
         mvc.modalPresentationStyle = .fullScreen
         self.navigationController?.present(mvc, animated: true, completion: nil)
     }

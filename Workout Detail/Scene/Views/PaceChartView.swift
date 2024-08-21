@@ -4,9 +4,8 @@
 //
 //  Created by Marina Huber on 28.06.2021..
 //
-
+import AAInfographics_Pro
 import UIKit
-import AAInfographics
 import os
 
 class PaceChartView: UIView {
@@ -53,7 +52,7 @@ class PaceChartView: UIView {
             .chartType(.areaspline)
             .xAxisVisible(false)
             .animationType(.easeInQuint)
-            .axesTextColor(AAColor.black)
+          //  .axesTextColor(AAColor.black)
             .legendEnabled(false)
             .margin(top: 10.0, right: 10.0, bottom: 20.0, left: 30.0)
             .series([
@@ -74,7 +73,7 @@ class PaceChartView: UIView {
             .gridLineWidth(0)
         aaOptions.yAxis?.labels(AALabels()
                                     .x(-30)
-                                    .align(AAChartAlignType.left.rawValue)
+                                    .align(AAChartAlignType.left)
                                     .style(AAStyle()
                                             .color(AAColor.black)
                                             .fontWeight(AAChartFontWeightType.bold)

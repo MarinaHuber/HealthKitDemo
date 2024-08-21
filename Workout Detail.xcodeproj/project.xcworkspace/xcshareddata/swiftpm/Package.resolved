@@ -1,43 +1,42 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "AAInfographics",
-        "repositoryURL": "https://github.com/AAChartModel/AAChartKit-Swift.git",
-        "state": {
-          "branch": null,
-          "revision": "9be1dcdf92c5b9ed9e2b83f4dd9fbd801e40e1ce",
-          "version": "6.0.0"
-        }
-      },
-      {
-        "package": "CoreGPX",
-        "repositoryURL": "https://github.com/vincentneo/CoreGPX",
-        "state": {
-          "branch": null,
-          "revision": "bc61acc0b64f8f09a51811ac0664885af30d0a41",
-          "version": "0.9.0"
-        }
-      },
-      {
-        "package": "PanModal",
-        "repositoryURL": "https://github.com/slackhq/PanModal",
-        "state": {
-          "branch": null,
-          "revision": "b012aecb6b67a8e46369227f893c12544846613f",
-          "version": "1.2.7"
-        }
-      },
-      {
-        "package": "SnapKit",
-        "repositoryURL": "https://github.com/SnapKit/SnapKit",
-        "state": {
-          "branch": null,
-          "revision": "d458564516e5676af9c70b4f4b2a9178294f1bc6",
-          "version": "5.0.1"
-        }
+  "originHash" : "f01b7d07528680541220aed4b08449010ea1039c21b6146416188351e1356508",
+  "pins" : [
+    {
+      "identity" : "aachartkit-swift-pro",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AAChartModel/AAChartKit-Swift-Pro.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "2cce71e428cb0306499c5d79f48d18681ab50f96"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "coregpx",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vincentneo/CoreGPX",
+      "state" : {
+        "revision" : "90dea5dea799e2b3684f5c72f07141d8516ce80b",
+        "version" : "0.9.2"
+      }
+    },
+    {
+      "identity" : "panmodal",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/slackhq/PanModal",
+      "state" : {
+        "revision" : "b012aecb6b67a8e46369227f893c12544846613f",
+        "version" : "1.2.7"
+      }
+    },
+    {
+      "identity" : "snapkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SnapKit/SnapKit",
+      "state" : {
+        "revision" : "2842e6e84e82eb9a8dac0100ca90d9444b0307f4",
+        "version" : "5.7.1"
+      }
+    }
+  ],
+  "version" : 3
 }

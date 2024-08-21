@@ -3,10 +3,10 @@
 //  Workout Detail
 //
 //  Created by Marina Huber on 28.06.2021..
-//
+//https://github.com/AAChartModel/AAChartKit-Swift-Pro.git
 
+import AAInfographics_Pro
 import UIKit
-import AAInfographics
 
 class SpeedChartView: UIView {
     
@@ -49,7 +49,7 @@ class SpeedChartView: UIView {
             .title("m/sec")
             .animationType(.easeInQuint)
             .xAxisVisible(false)
-            .axesTextColor(AAColor.black)
+           // .axesTextColor(AAColor.black)
             .legendEnabled(false)
             .margin(top: 10.0, right: 10.0, bottom: 20.0, left: 30.0)
             .series([
@@ -72,7 +72,7 @@ class SpeedChartView: UIView {
             .tickInterval(Float(8/4.0))
         aaOptions.yAxis?.labels(AALabels()
                                     .x(-30)
-                                    .align(AAChartAlignType.left.rawValue)
+                                    .align(AAChartAlignType.left)
                                     .style(AAStyle()
                                             .color(AAColor.black)
                                             .fontWeight(AAChartFontWeightType.bold)

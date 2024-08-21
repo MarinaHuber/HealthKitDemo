@@ -6,9 +6,9 @@
 //
 
 import UIKit
-import PanModal
-import AAInfographics
+//import PanModal
 import os
+import SnapKit
 
 class ChartViewController: UIViewController {
     
@@ -44,7 +44,17 @@ class ChartViewController: UIViewController {
         
         self.graphSegmentedControl.selectedSegmentIndex = 0
     }
-    
+
+    private func setupGraphSegmentedControl() {
+        let items = ["Heart rate", "Speed", "Pace"]
+        self.graphSegmentedControl = UISegmentedControl(items: items)
+        self.graphSegmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        self.graphSegmentedControl.selectedSegmentTintColor = .systemBlue
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.graphSegmentedControl.setTitleTextAttributes(titleTextAttributes, for: .selected)
+        self.graphSegmentedControl.addTarget(self, action: #selector(graphDidChange(_:)), for: .valueChanged)
+    }
+
     private func setupConstraints() {
         self.graphSegmentedControl.snp.makeConstraints { (make) in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(10)
@@ -72,17 +82,6 @@ class ChartViewController: UIViewController {
         }
     }
     
-    
-    private func setupGraphSegmentedControl() {
-        let items = ["Heart rate", "Speed", "Pace"]
-        self.graphSegmentedControl = UISegmentedControl(items: items)
-        self.graphSegmentedControl.translatesAutoresizingMaskIntoConstraints = false
-        self.graphSegmentedControl.selectedSegmentTintColor = .systemBlue
-        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        self.graphSegmentedControl.setTitleTextAttributes(titleTextAttributes, for: .selected)
-        self.graphSegmentedControl.addTarget(self, action: #selector(graphDidChange(_:)), for: .valueChanged)
-    }
-    
     @objc func graphDidChange(_ segmentedControl: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
@@ -107,17 +106,24 @@ class ChartViewController: UIViewController {
     
 }
 
-extension ChartViewController: PanModalPresentable {
+//@available(iOS 15.0, *)
+//extension ChartViewController: PanModalPresentable {
+//
+//    var panScrollable: UIScrollView? {
+//        return nil
+//    }
+//
+//    var longFormHeight: PanModalHeight {
+//        return .maxHeightWithTopInset(self.view.bounds.size.height / 3.0 * 2)
+//    }
+//
+//    var anchorModalToLongForm: Bool {
+//        return false
+//    }
+//}
 
-    var panScrollable: UIScrollView? {
-        return nil
-    }
-
-    var longFormHeight: PanModalHeight {
-        return .maxHeightWithTopInset(self.view.bounds.size.height / 3.0 * 2)
-    }
-
-    var anchorModalToLongForm: Bool {
-        return false
-    }
-}
+//extension ChartViewController: UIPopoverPresentationControllerDelegate {
+//    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+//        return .none
+//    }
+//}

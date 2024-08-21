@@ -5,6 +5,8 @@
 //  Created by Marina Huber on 01.10.2021..
 //
 
+// NOT USED!
+
 import Foundation
 import MapKit
 import SwiftUI
@@ -14,7 +16,7 @@ import StoreKit
 @available(iOS 14.0, *)
 struct MapScreen: View {
     
-    @ObservedObject var workoutProvider: WorkoutProvider
+    @StateObject var workoutProvider: WorkoutProvider
     
     @State var mapType = 1
     @State var showShareModalView: Bool = false
@@ -22,9 +24,7 @@ struct MapScreen: View {
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
-            ZStack {
-                let _ = print("Update MapScreen")
-            
+            ZStack {            
                 MapViewRepresentable(workoutProvider: workoutProvider)
                     .edgesIgnoringSafeArea(.all)
                 
@@ -71,8 +71,6 @@ struct MapScreen: View {
                             })
                             //Always Shown
                             Button(action: {
-                               //hide splits
-                               //if not Pro - tapping takes the user to the Upgrade Screen
                             }) {
                                 Text("Splits").foregroundColor(Color(UIColor.purple))
                                     .font(.headline)
@@ -140,12 +138,9 @@ struct MapScreen: View {
     
 }
 
-@available(iOS 14.0, *)
 struct GradientView: View {
     
     var body: some View {
-        let _ = print("Update Gradient")
-        
         Text("Speed")
             .frame(width: 330, height: 30)
             .foregroundColor(.white)
@@ -155,14 +150,3 @@ struct GradientView: View {
             )
     }
 }
-
-
-//#if DEBUG
-//@available(iOS 14.0, *)
-//struct MapScreen_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SheetMapView(data: TripDetailsViewModel(trip: Trip(), tripSpeeds: TripSpeeds(locations: PaddleCloud.locations), mapImage: Image(), isPro: .constant(true), showHealth: .constant(true)))
-//    }
-//}
-//#endif
-

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,25 +15,41 @@
 		62F9C62A26565C4A00D77B53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62F9C62826565C4A00D77B53 /* Main.storyboard */; };
 		62F9C62C26565C4A00D77B53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62F9C62B26565C4A00D77B53 /* Assets.xcassets */; };
 		62F9C62F26565C4A00D77B53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62F9C62D26565C4A00D77B53 /* LaunchScreen.storyboard */; };
-		9C1BD306265DA4B9000E167B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9C1BD305265DA4B9000E167B /* SnapKit */; };
 		9C1BD30D265DA78F000E167B /* PanModal in Frameworks */ = {isa = PBXBuildFile; productRef = 9C1BD30C265DA78F000E167B /* PanModal */; };
 		9C1BD311265DAA4B000E167B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1BD310265DAA4B000E167B /* MapViewController.swift */; };
 		9C1BD317265FBD41000E167B /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1BD316265FBD41000E167B /* ChartViewController.swift */; };
 		9C1BD31A265FC28A000E167B /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1BD319265FC28A000E167B /* Workout.swift */; };
+		9C21AE242725F6DC00A59104 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5327872662C0CF007F58E3 /* HealthKit.framework */; };
+		9C21AE252725F6DC00A59104 /* HealthKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5327872662C0CF007F58E3 /* HealthKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9C21AE2A2725F7F800A59104 /* MapViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C21AE282725F72F00A59104 /* MapViewRepresentable.swift */; };
 		9C5327782662812D007F58E3 /* WorkoutMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5327772662812D007F58E3 /* WorkoutMapper.swift */; };
-		9C5327882662C0CF007F58E3 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5327872662C0CF007F58E3 /* HealthKit.framework */; };
+		9C5EEEAF2715B46300B9DF27 /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB3CDA5270F17610014A362 /* MapScreen.swift */; };
+		9C5EEEB02715B46600B9DF27 /* WorkoutProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB3CDA7270F17610014A362 /* WorkoutProvider.swift */; };
 		9C6CA5C52667CF3900577C4A /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6CA5C32667CF3900577C4A /* HealthManager.swift */; };
 		9C6CA5C62667CF3900577C4A /* HealthProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6CA5C42667CF3900577C4A /* HealthProtocols.swift */; };
-		9C967C3D26748D2800C5BC1C /* AAInfographics in Frameworks */ = {isa = PBXBuildFile; productRef = 9C967C3C26748D2800C5BC1C /* AAInfographics */; };
-		9CB3CD9E270F12A80014A362 /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB3CD9B270F12A80014A362 /* MapScreen.swift */; };
-		9CB3CD9F270F12A80014A362 /* MapViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB3CD9C270F12A80014A362 /* MapViewRepresentable.swift */; };
-		9CB3CDA0270F12A80014A362 /* WorkoutProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB3CD9D270F12A80014A362 /* WorkoutProvider.swift */; };
 		9CB3CDA3270F14310014A362 /* Image+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB3CDA2270F14310014A362 /* Image+Extention.swift */; };
+		9CCA398928C2094C00C149CB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9CCA398828C2094C00C149CB /* SnapKit */; };
+		9CCCC3142C75358800332509 /* AAInfographics-Pro in Frameworks */ = {isa = PBXBuildFile; productRef = 9CCCC3132C75358800332509 /* AAInfographics-Pro */; };
+		9CCCC3162C753DFA00332509 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CCCC3152C753DFA00332509 /* MapKit.framework */; };
 		9CEAAF482689CA24004976C7 /* HeartRateChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEAAF472689CA24004976C7 /* HeartRateChartView.swift */; };
 		9CEAAF4C2689CA32004976C7 /* SpeedChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEAAF4B2689CA32004976C7 /* SpeedChartView.swift */; };
 		9CEAAF4F2689CA41004976C7 /* PaceChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEAAF4E2689CA41004976C7 /* PaceChartView.swift */; };
 		9CEFE7E5266A8B8000A31D44 /* import.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9CEFE7E4266A8B8000A31D44 /* import.gpx */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9C21AE262725F6DC00A59104 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9C21AE252725F6DC00A59104 /* HealthKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		623984FF2656754400965A3B /* GPXWaypoint+Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GPXWaypoint+Location.swift"; sourceTree = "<group>"; };
@@ -44,10 +60,10 @@
 		62F9C62926565C4A00D77B53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		62F9C62B26565C4A00D77B53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62F9C62E26565C4A00D77B53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		62F9C63026565C4A00D77B53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C1BD310265DAA4B000E167B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		9C1BD316265FBD41000E167B /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		9C1BD319265FC28A000E167B /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		9C21AE282725F72F00A59104 /* MapViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewRepresentable.swift; sourceTree = "<group>"; };
 		9C5327772662812D007F58E3 /* WorkoutMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutMapper.swift; sourceTree = "<group>"; };
 		9C5327852662C0CF007F58E3 /* Workout Detail.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Workout Detail.entitlements"; sourceTree = "<group>"; };
 		9C5327872662C0CF007F58E3 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
@@ -58,8 +74,8 @@
 		9CB3CD9D270F12A80014A362 /* WorkoutProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutProvider.swift; sourceTree = "<group>"; };
 		9CB3CDA2270F14310014A362 /* Image+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extention.swift"; sourceTree = "<group>"; };
 		9CB3CDA5270F17610014A362 /* MapScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
-		9CB3CDA6270F17610014A362 /* MapViewRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewRepresentable.swift; sourceTree = "<group>"; };
 		9CB3CDA7270F17610014A362 /* WorkoutProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutProvider.swift; sourceTree = "<group>"; };
+		9CCCC3152C753DFA00332509 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9CEAAF472689CA24004976C7 /* HeartRateChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateChartView.swift; sourceTree = "<group>"; };
 		9CEAAF4B2689CA32004976C7 /* SpeedChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedChartView.swift; sourceTree = "<group>"; };
 		9CEAAF4E2689CA41004976C7 /* PaceChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaceChartView.swift; sourceTree = "<group>"; };
@@ -71,11 +87,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CCCC3162C753DFA00332509 /* MapKit.framework in Frameworks */,
 				623984FD2656625900965A3B /* CoreGPX in Frameworks */,
-				9C5327882662C0CF007F58E3 /* HealthKit.framework in Frameworks */,
-				9C967C3D26748D2800C5BC1C /* AAInfographics in Frameworks */,
-				9C1BD306265DA4B9000E167B /* SnapKit in Frameworks */,
 				9C1BD30D265DA78F000E167B /* PanModal in Frameworks */,
+				9C21AE242725F6DC00A59104 /* HealthKit.framework in Frameworks */,
+				9CCA398928C2094C00C149CB /* SnapKit in Frameworks */,
+				9CCCC3142C75358800332509 /* AAInfographics-Pro in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +149,6 @@
 				62F9C62826565C4A00D77B53 /* Main.storyboard */,
 				62F9C62B26565C4A00D77B53 /* Assets.xcassets */,
 				62F9C62D26565C4A00D77B53 /* LaunchScreen.storyboard */,
-				62F9C63026565C4A00D77B53 /* Info.plist */,
 			);
 			path = "Workout Detail";
 			sourceTree = "<group>";
@@ -141,7 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				9CB3CDA5270F17610014A362 /* MapScreen.swift */,
-				9CB3CDA6270F17610014A362 /* MapViewRepresentable.swift */,
+				9C21AE282725F72F00A59104 /* MapViewRepresentable.swift */,
 				9CB3CDA7270F17610014A362 /* WorkoutProvider.swift */,
 			);
 			path = SwiftUI;
@@ -166,7 +182,7 @@
 		9C53277E2662B8B2007F58E3 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				9C3E89CE27078FC2005315E4 /* SwiftIU */,
+				9C3E89CE27078FC2005315E4 /* SwiftUI */,
 				9CEAAF462689CA05004976C7 /* Views */,
 				9C1BD316265FBD41000E167B /* ChartViewController.swift */,
 				9C1BD310265DAA4B000E167B /* MapViewController.swift */,
@@ -178,6 +194,7 @@
 		9C5327862662C0CF007F58E3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9CCCC3152C753DFA00332509 /* MapKit.framework */,
 				9C5327872662C0CF007F58E3 /* HealthKit.framework */,
 			);
 			name = Frameworks;
@@ -222,6 +239,7 @@
 				62F9C61B26565C4A00D77B53 /* Sources */,
 				62F9C61C26565C4A00D77B53 /* Frameworks */,
 				62F9C61D26565C4A00D77B53 /* Resources */,
+				9C21AE262725F6DC00A59104 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -230,9 +248,9 @@
 			name = "Workout Detail";
 			packageProductDependencies = (
 				623984FC2656625900965A3B /* CoreGPX */,
-				9C1BD305265DA4B9000E167B /* SnapKit */,
 				9C1BD30C265DA78F000E167B /* PanModal */,
-				9C967C3C26748D2800C5BC1C /* AAInfographics */,
+				9CCA398828C2094C00C149CB /* SnapKit */,
+				9CCCC3132C75358800332509 /* AAInfographics-Pro */,
 			);
 			productName = "Workout Detail";
 			productReference = 62F9C61F26565C4A00D77B53 /* Workout Detail.app */;
@@ -244,8 +262,9 @@
 		62F9C61726565C4A00D77B53 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					62F9C61E26565C4A00D77B53 = {
 						CreatedOnToolsVersion = 12.5;
@@ -265,7 +284,7 @@
 				623984FB2656625900965A3B /* XCRemoteSwiftPackageReference "CoreGPX" */,
 				9C1BD304265DA4B9000E167B /* XCRemoteSwiftPackageReference "SnapKit" */,
 				9C1BD30B265DA78F000E167B /* XCRemoteSwiftPackageReference "PanModal" */,
-				9C967C3B26748D2800C5BC1C /* XCRemoteSwiftPackageReference "AAChartKit-Swift" */,
+				9CCCC3122C75327D00332509 /* XCRemoteSwiftPackageReference "AAChartKit-Swift-Pro" */,
 			);
 			productRefGroup = 62F9C62026565C4A00D77B53 /* Products */;
 			projectDirPath = "";
@@ -295,23 +314,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CB3CDA8270F17610014A362 /* MapScreen.swift in Sources */,
+				9C5EEEB02715B46600B9DF27 /* WorkoutProvider.swift in Sources */,
 				9C6CA5C62667CF3900577C4A /* HealthProtocols.swift in Sources */,
-				9CB3CDAA270F17610014A362 /* WorkoutProvider.swift in Sources */,
 				9CEAAF4C2689CA32004976C7 /* SpeedChartView.swift in Sources */,
+				9C21AE2A2725F7F800A59104 /* MapViewRepresentable.swift in Sources */,
 				62F9C62726565C4A00D77B53 /* ImportViewController.swift in Sources */,
 				9C1BD31A265FC28A000E167B /* Workout.swift in Sources */,
+				9C5EEEAF2715B46300B9DF27 /* MapScreen.swift in Sources */,
 				9C5327782662812D007F58E3 /* WorkoutMapper.swift in Sources */,
 				62F9C62326565C4A00D77B53 /* AppDelegate.swift in Sources */,
-				9CB3CDA0270F12A80014A362 /* WorkoutProvider.swift in Sources */,
 				9CEAAF482689CA24004976C7 /* HeartRateChartView.swift in Sources */,
 				9CEAAF4F2689CA41004976C7 /* PaceChartView.swift in Sources */,
-				9CB3CDA9270F17610014A362 /* MapViewRepresentable.swift in Sources */,
 				62F9C62526565C4A00D77B53 /* SceneDelegate.swift in Sources */,
 				9CB3CDA3270F14310014A362 /* Image+Extention.swift in Sources */,
 				9C1BD311265DAA4B000E167B /* MapViewController.swift in Sources */,
-				9CB3CD9F270F12A80014A362 /* MapViewRepresentable.swift in Sources */,
-				9CB3CD9E270F12A80014A362 /* MapScreen.swift in Sources */,
 				623985002656754400965A3B /* GPXWaypoint+Location.swift in Sources */,
 				9C1BD317265FBD41000E167B /* ChartViewController.swift in Sources */,
 				9C6CA5C52667CF3900577C4A /* HealthManager.swift in Sources */,
@@ -377,6 +393,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -438,6 +455,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -463,8 +481,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Workout Detail/Workout Detail.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7A4XXVRBXK;
+				DEVELOPMENT_TEAM = HBS2B82CVU;
 				INFOPLIST_FILE = "Workout Detail/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -483,8 +502,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Workout Detail/Workout Detail.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7A4XXVRBXK;
+				DEVELOPMENT_TEAM = HBS2B82CVU;
 				INFOPLIST_FILE = "Workout Detail/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -544,12 +564,12 @@
 				minimumVersion = 1.2.7;
 			};
 		};
-		9C967C3B26748D2800C5BC1C /* XCRemoteSwiftPackageReference "AAChartKit-Swift" */ = {
+		9CCCC3122C75327D00332509 /* XCRemoteSwiftPackageReference "AAChartKit-Swift-Pro" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AAChartModel/AAChartKit-Swift.git";
+			repositoryURL = "https://github.com/AAChartModel/AAChartKit-Swift-Pro.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.0.0;
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -560,20 +580,20 @@
 			package = 623984FB2656625900965A3B /* XCRemoteSwiftPackageReference "CoreGPX" */;
 			productName = CoreGPX;
 		};
-		9C1BD305265DA4B9000E167B /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9C1BD304265DA4B9000E167B /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
 		9C1BD30C265DA78F000E167B /* PanModal */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9C1BD30B265DA78F000E167B /* XCRemoteSwiftPackageReference "PanModal" */;
 			productName = PanModal;
 		};
-		9C967C3C26748D2800C5BC1C /* AAInfographics */ = {
+		9CCA398828C2094C00C149CB /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9C967C3B26748D2800C5BC1C /* XCRemoteSwiftPackageReference "AAChartKit-Swift" */;
-			productName = AAInfographics;
+			package = 9C1BD304265DA4B9000E167B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		9CCCC3132C75358800332509 /* AAInfographics-Pro */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9CCCC3122C75327D00332509 /* XCRemoteSwiftPackageReference "AAChartKit-Swift-Pro" */;
+			productName = "AAInfographics-Pro";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
