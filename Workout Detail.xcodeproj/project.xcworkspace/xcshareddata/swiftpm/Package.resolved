@@ -1,5 +1,5 @@
 {
-  "originHash" : "f01b7d07528680541220aed4b08449010ea1039c21b6146416188351e1356508",
+  "originHash" : "8d1359a3a931a58d593bbe9f954963d9b559883dce5363624066d555e9dd35e6",
   "pins" : [
     {
       "identity" : "aachartkit-swift-pro",
@@ -17,15 +17,6 @@
       "state" : {
         "revision" : "90dea5dea799e2b3684f5c72f07141d8516ce80b",
         "version" : "0.9.2"
-      }
-    },
-    {
-      "identity" : "panmodal",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/slackhq/PanModal",
-      "state" : {
-        "revision" : "b012aecb6b67a8e46369227f893c12544846613f",
-        "version" : "1.2.7"
       }
     },
     {

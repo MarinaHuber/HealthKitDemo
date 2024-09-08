@@ -52,13 +52,16 @@ class PaceChartView: UIView {
             .chartType(.areaspline)
             .xAxisVisible(false)
             .animationType(.easeInQuint)
-          //  .axesTextColor(AAColor.black)
             .legendEnabled(false)
+            .colorsTheme(["#04d69f"])  // Defines the color diagram style
+            .stacking(.normal)
+            .markerRadius(0)
             .margin(top: 10.0, right: 10.0, bottom: 20.0, left: 30.0)
             .series([
+                // Defines the color diagram style
                 AASeriesElement()
-                    .color(AAColor.rgbaColor(233, 99, 99, 0.9)) // lineColor
-                    .lineWidth(2.8)
+                    .lineWidth(1.5)
+                    .fillOpacity(0.5)
                     .enableMouseTracking(false)
                     .zIndex(1)
                     .data(data)
@@ -67,10 +70,12 @@ class PaceChartView: UIView {
         let aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
         // Y axis
         aaOptions.yAxis?
-            .max(0.5).min(0)
+            .max(2).min(0)
             .allowDecimals(false)
             .lineWidth(0)
             .gridLineWidth(0)
+            .alternateGridColor("#e6e6e6") // gray bg color grid horizontal
+            .tickInterval(Float(1/1.0))
         aaOptions.yAxis?.labels(AALabels()
                                     .x(-30)
                                     .align(AAChartAlignType.left)

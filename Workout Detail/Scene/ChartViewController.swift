@@ -6,7 +6,6 @@
 //
 
 import UIKit
-//import PanModal
 import os
 import SnapKit
 
@@ -105,25 +104,3 @@ class ChartViewController: UIViewController {
     }
     
 }
-
-//@available(iOS 15.0, *)
-//extension ChartViewController: PanModalPresentable {
-//
-//    var panScrollable: UIScrollView? {
-//        return nil
-//    }
-//
-//    var longFormHeight: PanModalHeight {
-//        return .maxHeightWithTopInset(self.view.bounds.size.height / 3.0 * 2)
-//    }
-//
-//    var anchorModalToLongForm: Bool {
-//        return false
-//    }
-//}
-
-//extension ChartViewController: UIPopoverPresentationControllerDelegate {
-//    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-//        return .none
-//    }
-//}

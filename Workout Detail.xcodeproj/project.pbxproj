@@ -15,7 +15,6 @@
 		62F9C62A26565C4A00D77B53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62F9C62826565C4A00D77B53 /* Main.storyboard */; };
 		62F9C62C26565C4A00D77B53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62F9C62B26565C4A00D77B53 /* Assets.xcassets */; };
 		62F9C62F26565C4A00D77B53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62F9C62D26565C4A00D77B53 /* LaunchScreen.storyboard */; };
-		9C1BD30D265DA78F000E167B /* PanModal in Frameworks */ = {isa = PBXBuildFile; productRef = 9C1BD30C265DA78F000E167B /* PanModal */; };
 		9C1BD311265DAA4B000E167B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1BD310265DAA4B000E167B /* MapViewController.swift */; };
 		9C1BD317265FBD41000E167B /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1BD316265FBD41000E167B /* ChartViewController.swift */; };
 		9C1BD31A265FC28A000E167B /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1BD319265FC28A000E167B /* Workout.swift */; };
@@ -89,7 +88,6 @@
 			files = (
 				9CCCC3162C753DFA00332509 /* MapKit.framework in Frameworks */,
 				623984FD2656625900965A3B /* CoreGPX in Frameworks */,
-				9C1BD30D265DA78F000E167B /* PanModal in Frameworks */,
 				9C21AE242725F6DC00A59104 /* HealthKit.framework in Frameworks */,
 				9CCA398928C2094C00C149CB /* SnapKit in Frameworks */,
 				9CCCC3142C75358800332509 /* AAInfographics-Pro in Frameworks */,
@@ -248,7 +246,6 @@
 			name = "Workout Detail";
 			packageProductDependencies = (
 				623984FC2656625900965A3B /* CoreGPX */,
-				9C1BD30C265DA78F000E167B /* PanModal */,
 				9CCA398828C2094C00C149CB /* SnapKit */,
 				9CCCC3132C75358800332509 /* AAInfographics-Pro */,
 			);
@@ -283,7 +280,6 @@
 			packageReferences = (
 				623984FB2656625900965A3B /* XCRemoteSwiftPackageReference "CoreGPX" */,
 				9C1BD304265DA4B9000E167B /* XCRemoteSwiftPackageReference "SnapKit" */,
-				9C1BD30B265DA78F000E167B /* XCRemoteSwiftPackageReference "PanModal" */,
 				9CCCC3122C75327D00332509 /* XCRemoteSwiftPackageReference "AAChartKit-Swift-Pro" */,
 			);
 			productRefGroup = 62F9C62026565C4A00D77B53 /* Products */;
@@ -556,14 +552,6 @@
 				minimumVersion = 5.0.1;
 			};
 		};
-		9C1BD30B265DA78F000E167B /* XCRemoteSwiftPackageReference "PanModal" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/slackhq/PanModal";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.7;
-			};
-		};
 		9CCCC3122C75327D00332509 /* XCRemoteSwiftPackageReference "AAChartKit-Swift-Pro" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AAChartModel/AAChartKit-Swift-Pro.git";
@@ -579,11 +567,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 623984FB2656625900965A3B /* XCRemoteSwiftPackageReference "CoreGPX" */;
 			productName = CoreGPX;
-		};
-		9C1BD30C265DA78F000E167B /* PanModal */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9C1BD30B265DA78F000E167B /* XCRemoteSwiftPackageReference "PanModal" */;
-			productName = PanModal;
 		};
 		9CCA398828C2094C00C149CB /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

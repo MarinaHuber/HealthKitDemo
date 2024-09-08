@@ -48,13 +48,16 @@ class HeartRateChartView: UIView {
         let aaChartModel = AAChartModel()
             .chartType(.areaspline)
             .animationType(.easeInQuint)
-           // .backgroundColor(AAColor.black)
+            .colorsTheme(["#ce0909"])  // Defines the color diagram style
+            .stacking(.normal)
+            .markerRadius(0)
             .legendEnabled(false)
             .margin(top: 10.0, right: 10.0, bottom: 20.0, left: 30.0)
             .series([
                 AASeriesElement()
-                    .color(AAColor.rgbaColor(201,0,22,0.7)) // lineColor
-                    .lineWidth(2.8)
+                // Defines the color diagram style
+                    .lineWidth(1.5)
+                    .fillOpacity(0.5)
                     .enableMouseTracking(false)
                     .zIndex(1)
                     .data(data)

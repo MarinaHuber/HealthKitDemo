@@ -49,13 +49,16 @@ class SpeedChartView: UIView {
             .title("m/sec")
             .animationType(.easeInQuint)
             .xAxisVisible(false)
-           // .axesTextColor(AAColor.black)
+            .colorsTheme(["#2317f0"])  // Defines the color diagram style
+            .stacking(.normal)
+            .markerRadius(0)
             .legendEnabled(false)
             .margin(top: 10.0, right: 10.0, bottom: 20.0, left: 30.0)
             .series([
+                // Defines the color diagram style
                 AASeriesElement()
-                    .color(AAColor.rgbaColor(223, 32, 32, 0.7)) // lineColor
-                    .lineWidth(2.8)
+                    .lineWidth(1.5)
+                    .fillOpacity(0.5)
                     .enableMouseTracking(false)
                     .zIndex(1)
                     .data(data)
