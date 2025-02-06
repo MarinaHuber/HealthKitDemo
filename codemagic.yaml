@@ -9,9 +9,9 @@ workflows:
           XCODE_SCHEME: "Workout Detail" # <-- Put the name of your scheme here.
           BUNDLE_ID: "com.marinahuber.Workout" # <-- Put your Bundle Id here.
           APP_STORE_APPLE_ID: 6741595847 # <-- Put the app id number here. This is found in App Store Connect > App > General > App Information
-        xcode: latest # <-- set to specific version e.g. 14.3, 15.0 to avoid unexpected updates.
+        xcode: latest
       integrations:
-        app_store_connect: Codemagic Appstore Key
+        app_store_connect: Codemagic Appstore Key  # <-- set in Team Integration App Store Connect Key name
       triggering:
         events:
           - push
@@ -25,9 +25,9 @@ workflows:
           script: |
             keychain initialize
         - name: Fetch signing files
-          script: |
+          script: |   # <-- set to type IOS_APP_STORE for App store and TestFlight
             app-store-connect fetch-signing-files "$(xcode-project detect-bundle-id)" \
-            --type IOS_APP_STORE \
+            --type IOS_APP_STORE \ 
             --create
         - name: Use system default keychain
           script: |
