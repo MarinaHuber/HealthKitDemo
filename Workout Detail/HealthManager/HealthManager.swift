@@ -139,7 +139,7 @@ extension HealthManager: HealthDelegate {
     func getRouteValueFromHealthKit(completion: @escaping (([CLLocation], Error?) -> Void)) {
         var totalWorkouts: [CLLocation] = []
         
-        let routeQuery = HKAnchoredObjectQuery(type: HKSeriesType.workoutRoute(), predicate: nil, anchor: nil, limit: HKObjectQueryNoLimit) { (query, samples, deletedObjectsOrNil, newAnchor, errorOrNil) in
+        let query = HKAnchoredObjectQuery(type: HKSeriesType.workoutRoute(), predicate: nil, anchor: nil, limit: HKObjectQueryNoLimit) { (query, samples, deletedObjectsOrNil, newAnchor, errorOrNil) in
             guard let samples = samples, let _ = deletedObjectsOrNil else {
                 #warning("Add alert for when notauthorized")
                 fatalError("*** An error occurred during the initial query: \(errorOrNil!.localizedDescription) ***")
@@ -150,7 +150,7 @@ extension HealthManager: HealthDelegate {
             }
             let route = samples.first as! HKWorkoutRoute
             
-            let query = HKWorkoutRouteQuery(route: route) {
+            let routeQuery = HKWorkoutRouteQuery(route: route) {
                 (query, locationsOrNil, done, errorOrNil) in
                 if let error = errorOrNil {
                     os_log("Error \(error as NSObject)")
@@ -171,10 +171,10 @@ extension HealthManager: HealthDelegate {
                 }
             }
             
-            self.store.execute(query)
+            self.store.execute(routeQuery)
         }
         
-        store.execute(routeQuery)
+        self.store.execute(query)
     }
     
     // MARK: - Heart rate

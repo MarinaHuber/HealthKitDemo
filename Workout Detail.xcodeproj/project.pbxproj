@@ -135,7 +135,7 @@
 		62F9C62126565C4A00D77B53 /* Workout Detail */ = {
 			isa = PBXGroup;
 			children = (
-				9C6CA5C22667CEFB00577C4A /* Health Manager */,
+				9C6CA5C22667CEFB00577C4A /* HealthManager */,
 				9C5327852662C0CF007F58E3 /* Workout Detail.entitlements */,
 				623984FE2656752D00965A3B /* Extensions */,
 				9C53277E2662B8B2007F58E3 /* Scene */,
@@ -198,13 +198,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9C6CA5C22667CEFB00577C4A /* Health Manager */ = {
+		9C6CA5C22667CEFB00577C4A /* HealthManager */ = {
 			isa = PBXGroup;
 			children = (
 				9C6CA5C32667CF3900577C4A /* HealthManager.swift */,
 				9C6CA5C42667CF3900577C4A /* HealthProtocols.swift */,
 			);
-			path = "Health Manager";
+			path = HealthManager;
 			sourceTree = "<group>";
 		};
 		9CB3CDA4270F16FB0014A362 /* Recovered References */ = {
