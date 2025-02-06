@@ -10,6 +10,8 @@ workflows:
           BUNDLE_ID: "com.marinahuber.Workout" # <-- Put your Bundle Id here.
           APP_STORE_APPLE_ID: 6741595847 # <-- Put the app id number here. This is found in App Store Connect > App > General > App Information
         xcode: latest # <-- set to specific version e.g. 14.3, 15.0 to avoid unexpected updates.
+      integrations:
+        app_store_connect: Codemagic Appstore Key
       triggering:
         events:
           - push
@@ -45,5 +47,3 @@ workflows:
       artifacts:
         - build/ios/ipa/*.ipa
         - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
-      integrations:
-        app_store_connect: Codemagic Appstore Key
