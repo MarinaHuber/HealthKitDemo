@@ -5,19 +5,17 @@ workflows:
         groups:
           - code-signing
         vars:
-          XCODE_WORKSPACE: "swiftly.xcworkspace" # <-- Put the name of your workspace here.
-          XCODE_SCHEME: "swiftly" # <-- Put the name of your scheme here.
-          BUNDLE_ID: "io.codemagic.swiftly" # <-- Put your Bundle Id here.
-          APP_STORE_APPLE_ID: 1555555551 # <-- Put the app id number here. This is found in App Store Connect > App > General > App Information
+          XCODE_PROJECT: "Workout detail.xcodeproj" # <-- Put the name of your workspace here.
+          XCODE_SCHEME: "Workout Detail" # <-- Put the name of your scheme here.
+          BUNDLE_ID: "com.marinahuber.Workout" # <-- Put your Bundle Id here.
+          APP_STORE_APPLE_ID: 6741595847 # <-- Put the app id number here. This is found in App Store Connect > App > General > App Information
         xcode: latest # <-- set to specific version e.g. 14.3, 15.0 to avoid unexpected updates.
-        cocoapods: default
       triggering:
         events:
           - push
-          - tag
           - pull_request
         branch_patterns:
-          - pattern: 'develop'
+          - pattern: 'main'
             include: true
             source: true
       scripts:
