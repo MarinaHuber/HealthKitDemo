@@ -1,6 +1,6 @@
 workflows:
     ios-workflow:
-      name: iOS Workflow
+      name: iOS AutoSign Workflow
       environment:
         groups:
           - code-signing
