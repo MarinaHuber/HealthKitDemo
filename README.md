@@ -17,8 +17,5 @@ The goal of the project is to make a route map with an overlay with charts which
 
 - App can be either UIKit, SwiftUI or a hybrid
 - You can use any third party dependencies you see fit, but be prepared to explain why you chose them
-    - We use [PanModal](https://github.com/slackhq/PanModal) for the popover cards at the moment
     - I have included [CoreGPX](https://github.com/vincentneo/CoreGPX) 
-- Remember to include time for demoing your app and other communications that may come up
-- You don't need to worry about presenting errors or feedback to the user, you can just use `print` or `os_log`
 
